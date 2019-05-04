@@ -10,5 +10,11 @@ namespace programaSolução_InácioDiogoRafael
     /// </summary>
     class Player
     {
+        // variaveis
+
+        // lista do numero de fantasmas para o que o jogador tem na mao
+
+        // lista do numero de fantasmas para o que o jogador tem na dungeon
+
     }
 }
