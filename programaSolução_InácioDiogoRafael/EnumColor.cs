@@ -9,5 +9,8 @@ namespace programaSolução_InácioDiogoRafael
     /// </summary>
     enum EnumColor
     {
+        Red,
+        Blue,
+        Yellow
     }
 }

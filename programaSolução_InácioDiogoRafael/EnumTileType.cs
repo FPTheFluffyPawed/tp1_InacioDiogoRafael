@@ -9,5 +9,10 @@ namespace programaSolução_InácioDiogoRafael
     /// </summary>
     enum EnumTileType
     {
+        RedTile,
+        BlueTile,
+        YellowTile,
+        Mirror,
+        Portal
     }
 }
