@@ -20,8 +20,6 @@ Inácio Amerio:
 Rafael Silva:
 * Fill
 
-Os grupos podem ter entre 2 a 3 elementos.
-
 ## Descrição da solução
 
 * Arquitetura da solução, com breve explicação de como o programa foi organizado
