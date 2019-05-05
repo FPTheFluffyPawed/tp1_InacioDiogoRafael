@@ -11,15 +11,19 @@ namespace programaSolução_InácioDiogoRafael
     {
         // Utilizar EnumColor para buscar as cores.
         private EnumColor TileColor;
+        private EnumTileType TileType;
 
         // Construtor para criar uma casa com cor.
-        public Tile(EnumColor tileColor)
+        public Tile(EnumColor tileColor, EnumTileType tileType)
         {
             TileColor = tileColor;
+            TileType = tileType;
         }
 
         // Buscar e returnar a cor de um objeto.
         EnumColor GetColor() => TileColor;
 
+        // Buscar e returnar a cor de um objeto.
+        EnumTileType GetTile() => TileType;
     }
 }
