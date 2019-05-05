@@ -5,11 +5,13 @@ using System.Text;
 namespace programaSolução_InácioDiogoRafael
 {
     /// <summary>
-    /// O Board tem a lista das posições todas, tem a grelha, tem as
-    /// coordenadas e tem as tiles.
+    /// Tipos de fantasmas.
     /// </summary>
-    class Board
+    public enum EnumGhostType
     {
-        Tile tile;
+        NoGhost,
+        RedGhost,
+        BlueGhost,
+        YellowGhost
     }
 }

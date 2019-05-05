@@ -9,5 +9,6 @@ namespace programaSolução_InácioDiogoRafael
     /// </summary>
     class Game
     {
+
     }
 }

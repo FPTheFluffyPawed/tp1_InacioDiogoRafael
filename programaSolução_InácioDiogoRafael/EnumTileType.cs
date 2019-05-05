@@ -9,10 +9,6 @@ namespace programaSolução_InácioDiogoRafael
     /// </summary>
     public enum EnumTileType
     {
-        NoGhost,
-        RedGhost,
-        BlueGhost,
-        YellowGhost,
         RedTile,
         BlueTile,
         YellowTile,
