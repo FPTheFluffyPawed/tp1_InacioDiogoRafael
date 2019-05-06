@@ -20,6 +20,11 @@ namespace programaSolução_InácioDiogoRafael
             TileType = tileType;
         }
 
+        public Tile(EnumTileType tileType)
+        {
+            TileType = tileType;
+        }
+
         // Buscar e returnar a cor de um objeto.
         EnumColor GetColor() => TileColor;
 
