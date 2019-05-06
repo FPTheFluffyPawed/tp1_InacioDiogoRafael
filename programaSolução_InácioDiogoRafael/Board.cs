@@ -58,10 +58,20 @@ namespace programaSolução_InácioDiogoRafael
             Tiles[4, 4] = new Tile(EnumColor.Yellow, EnumTileType.Tile);
         }
 
-        // Getter para obter o tipo (Color + TileType) em uma posição de Tiles.
+        /// <summary>
+        /// Getter para obter o tipo (Color + TileType) em uma posição de Tiles.
+        /// </summary>
+        /// <param name="i">X</param>
+        /// <param name="j">Y</param>
+        /// <returns></returns>
+        public object GetTileColor(int i, int j)
+        {
+            return Tiles[i, j].GetColor();
+        }
+
         public object GetTileType(int i, int j)
         {
-            return Tiles.GetValue(i, j);
+            return Tiles[i, j].GetType();
         }
     }
 }
