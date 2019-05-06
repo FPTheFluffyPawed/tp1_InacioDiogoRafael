@@ -59,9 +59,9 @@ namespace programaSolução_InácioDiogoRafael
         }
 
         // Getter para obter o tipo (Color + TileType) em uma posição de Tiles.
-        public string GetTileType(int i, int j)
+        public object GetTileType(int i, int j)
         {
-            return Convert.ToString(Tiles[i, j]);
+            return Tiles.GetValue(i, j);
         }
     }
 }
