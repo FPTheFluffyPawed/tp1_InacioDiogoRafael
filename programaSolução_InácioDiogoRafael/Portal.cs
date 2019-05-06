@@ -11,6 +11,7 @@ namespace programaSolução_InácioDiogoRafael
     {
         EnumPortalDirection direction;
         EnumColor color;
+
         // Rodar portal na direção dos ponteiros do relógio
         public void ChangeDirection()
         {
@@ -33,9 +34,16 @@ namespace programaSolução_InácioDiogoRafael
             }
         }
 
-        public void FreeGhost()
+        public void FreeGhosts(int i, int j)
         {
+            // Variables
+            Board board = new Board();
+            var ghostPos;
+            bool freeGhost;
 
+            // Check ghost color
+            if (board.GetTileColor(i, j) == ghost.GetColor && direction == ghostPos)
+                freeGhost = true;
         }
     }
 }
