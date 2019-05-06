@@ -10,6 +10,7 @@ namespace programaSolução_InácioDiogoRafael
     class Portal
     {
         EnumPortalDirection direction;
+        EnumColor color;
         // Rodar portal na direção dos ponteiros do relógio
         public void ChangeDirection()
         {
@@ -30,6 +31,11 @@ namespace programaSolução_InácioDiogoRafael
                 default:
                     break;
             }
+        }
+
+        public void FreeGhost()
+        {
+
         }
     }
 }
