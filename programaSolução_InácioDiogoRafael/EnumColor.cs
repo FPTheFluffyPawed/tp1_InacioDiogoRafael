@@ -7,7 +7,7 @@ namespace programaSolução_InácioDiogoRafael
     /// <summary>
     /// Listagem das cores
     /// </summary>
-    enum EnumColor
+    public enum EnumColor
     {
         Red,
         Blue,

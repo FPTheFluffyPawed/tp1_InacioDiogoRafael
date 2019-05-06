@@ -7,7 +7,7 @@ namespace programaSolução_InácioDiogoRafael
     /// <summary>
     /// Os tipos de casas (Os Espelhos, portais e casas coloridas).
     /// </summary>
-    enum EnumTileType
+    public enum EnumTileType
     {
         Tile,
         Mirror,
