@@ -71,7 +71,7 @@ namespace programaSolução_InácioDiogoRafael
 
         public object GetTileType(int i, int j)
         {
-            return Tiles[i, j].GetType();
+            return Tiles[i, j].GetTile();
         }
     }
 }
