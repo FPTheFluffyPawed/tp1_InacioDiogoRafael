@@ -33,12 +33,7 @@ namespace programaSolução_InácioDiogoRafael
             }
         }
 
-        static bool CheckSelectGhost(string currentInput, Ghost[] ghostArray)
-        {
-            if(!Int32.TryParse(currentInput, out int g)) return false;
 
-
-        }
 
 
     }
