@@ -15,7 +15,7 @@ namespace programaSolução_InácioDiogoRafael
         {
             string[] coords;
             if (!currentInput.Contains(",")) return false;
-            else coords = currentInput.Split(",");
+            else coords = currentInput.Split(",", 2);
 
             if (!Int32.TryParse(coords[0], out int x) || 
                 !Int32.TryParse(coords[1], out int y)) 
@@ -33,7 +33,13 @@ namespace programaSolução_InácioDiogoRafael
             }
         }
 
-
+        static bool CheckSelectGhost(string currentInput, Ghost[] ghostArray)
+        {
+            if (Int32.TryParse(currentInput, out int g) && 
+                ghostArray[Int32.Parse(currentInput)] != null) return true;
+            else return false;
+            
+        }
 
 
     }
