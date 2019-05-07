@@ -11,6 +11,7 @@ namespace programaSolução_InácioDiogoRafael
     {
         public EnumPortalDirection Direction {get; private set;}
         private EnumColor _color;
+        List<Ghost> freeGhosts;
 
 
         public Position pos {get; private set;}
@@ -19,6 +20,7 @@ namespace programaSolução_InácioDiogoRafael
             _color = color;
             Direction = startDirection;
             pos = new Position(X0,Y0);
+            freeGhosts = new List<Ghost>(0);
         }
 
         public void ChangeDirection()
@@ -39,6 +41,19 @@ namespace programaSolução_InácioDiogoRafael
                     break;
                 default:
                     break;
+            }
+        }
+
+        public void FreeGhosts(int i, int j, Ghost savedGhost)
+        {
+            Player p1 = new Player();
+            Ghost ghost = new Ghost(EnumColor.Red, p1);
+
+            if (_color == ghost.color && pos == ghost.pos)
+            {
+                freeGhosts.Add(savedGhost);
+                savedGhost.owner.playerGhosts.Remove(savedGhost);
+                savedGhost.owner.ghostsOut.Add(savedGhost);
             }
         }
 
