@@ -10,8 +10,8 @@ namespace programaSolução_InácioDiogoRafael
     /// </summary>
     class Board
     {
-        Tile[,] Tiles;
-        Portal[] Portals;
+        public Tile[,] Tiles {get; private set;}
+        public Portal[] Portals {get; private set;}
 
         public Board()
         {
@@ -62,9 +62,12 @@ namespace programaSolução_InácioDiogoRafael
 
         void PlacePortals()
         {
-            Portals[0] = new Portal(EnumColor.Red, EnumPortalDirection.Up);
-           Portals[1] = new Portal(EnumColor.Yellow, EnumPortalDirection.Right);
-           Portals[2] = new Portal(EnumColor.Blue, EnumPortalDirection.Down);
+            Portals[0] =
+                new Portal(EnumColor.Red, EnumPortalDirection.Up, 0, 2);
+            Portals[1] = 
+                new Portal(EnumColor.Yellow, EnumPortalDirection.Right, 2, 2);
+            Portals[2] = 
+                new Portal(EnumColor.Blue, EnumPortalDirection.Down, 4, 2);
 
 
         }
@@ -84,5 +87,6 @@ namespace programaSolução_InácioDiogoRafael
         {
             return Tiles[i, j].GetTile();
         }
+        
     }
 }
