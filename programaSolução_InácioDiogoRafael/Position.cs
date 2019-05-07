@@ -2,6 +2,9 @@ using System;
 
 namespace programaSolução_InácioDiogoRafael
 {
+    /// <summary>
+    /// Class onde se guarda a posição dos vários objetos de jogo na grelha,    /// para facilitar o acesso a esta informação.
+    /// </summary>
     class Position
     {
         public int x {get; set;}
@@ -13,6 +16,8 @@ namespace programaSolução_InácioDiogoRafael
             y = initialY;
 
         }
+
+        public Position(){}
 
 
     }

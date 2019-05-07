@@ -4,6 +4,9 @@ using System.Text;
 
 namespace programaSolução_InácioDiogoRafael
 {
+    /// <summary>
+    /// Classe responsável por mostrar e atualizar o estado de jogo no ecrã.
+    /// </summary>
     class Renderer
     {
         private char _tileVisual = '+';
@@ -17,8 +20,6 @@ namespace programaSolução_InácioDiogoRafael
         {
             Console.WriteLine(" 01234");
             Console.Write("0\n1\n2\n3\n4");
-
-
         }
         public void DrawTiles(Tile[,] tiles)
         {
@@ -94,12 +95,9 @@ namespace programaSolução_InácioDiogoRafael
                         }
                 Console.Write(_portalVisuals[(int)portals[i].Direction]);
             }
-            
         }
-
-
-
     }
+
 
 
 }

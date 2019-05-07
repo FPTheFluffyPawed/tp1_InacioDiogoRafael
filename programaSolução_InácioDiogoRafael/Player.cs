@@ -20,6 +20,8 @@ namespace programaSolução_InácioDiogoRafael
         static int playersMade = 0;
         public int playerNumber {get; private set;}
 
+        Ghost selectedGhost;
+
         public Player()
         {
             playerNumber = playersMade + 1;
@@ -35,7 +37,7 @@ namespace programaSolução_InácioDiogoRafael
 
                    playerGhosts.Add(new Ghost(EnumColor.Yellow, this)); 
                 }
-                
+
                 playerGhosts.Add(new Ghost(EnumColor.Red, this));
             }
 

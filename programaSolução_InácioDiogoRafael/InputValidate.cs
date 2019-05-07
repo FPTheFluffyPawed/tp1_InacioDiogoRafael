@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Globalization;
+
 
 namespace programaSolução_InácioDiogoRafael
 {   
     /// <summary>
-    /// Capta os inputs dos jogadores.
+    /// Verifica se os inputs dos jogadores são válidos para o contexto do 
+    /// jogo.
     /// </summary>
     static class InputValidate
     {
