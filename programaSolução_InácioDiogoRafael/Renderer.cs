@@ -18,7 +18,12 @@ namespace programaSolução_InácioDiogoRafael
             {
                 for (int y = 0; y < tiles.GetLength(1); y++ )
                 {
-                    Console.SetCursorPosition(x,y);
+                   
+                    
+                        Console.SetCursorPosition(x,y);
+                    
+                    
+                    
                     if(tiles[x,y].GetTile() == EnumTileType.Mirror)
                     {
                         Console.ForegroundColor = ConsoleColor.White;
@@ -49,8 +54,8 @@ namespace programaSolução_InácioDiogoRafael
 
                         Console.Write(_tileVisual);
                     }
-                    else Console.Write(" ");
-
+                    else Console.Write("");
+                   
                 }
             }
 
@@ -60,8 +65,14 @@ namespace programaSolução_InácioDiogoRafael
         {
              for (int i = 0; i < portals.Length; i++)
             {
-                Console.SetCursorPosition(portals[i].pos.x,portals[i].pos.y);
+
+
+                Console.SetCursorPosition(portals[i].pos.x, portals[i].pos.y);
                 Console.Write(_portalVisuals[(int)portals[i].Direction]);
+                var x = portals[i].pos.x;
+                var y = portals[i].pos.y;
+
+
             }
             
         }

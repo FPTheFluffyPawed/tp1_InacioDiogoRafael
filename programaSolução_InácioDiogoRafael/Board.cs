@@ -42,9 +42,9 @@ namespace programaSolução_InácioDiogoRafael
             //3ª linha
             Tiles[2, 0] = new Tile(EnumColor.Red, EnumTileType.Tile);
             Tiles[2, 1] = new Tile(EnumColor.Blue, EnumTileType.Tile);
-            Tiles[2, 2] = new Tile(EnumTileType.Portal); //Yellow Portal
+            Tiles[2, 2] = new Tile(EnumColor.Red, EnumTileType.Tile); 
             Tiles[2, 3] = new Tile(EnumColor.Blue, EnumTileType.Tile);
-            Tiles[2, 4] = new Tile(EnumColor.Yellow, EnumTileType.Portal);
+            Tiles[2, 4] = new Tile(EnumTileType.Portal); //Yellow Portal
 
             //4ª linha
             Tiles[3, 0] = new Tile(EnumColor.Blue, EnumTileType.Tile);
@@ -66,7 +66,7 @@ namespace programaSolução_InácioDiogoRafael
             Portals[0] =
                 new Portal(EnumColor.Red, EnumPortalDirection.Up, 0, 2);
             Portals[1] = 
-                new Portal(EnumColor.Yellow, EnumPortalDirection.Right, 2, 2);
+                new Portal(EnumColor.Yellow, EnumPortalDirection.Right, 2, 4);
             Portals[2] = 
                 new Portal(EnumColor.Blue, EnumPortalDirection.Down, 4, 2);
 
