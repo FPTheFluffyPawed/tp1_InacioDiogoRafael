@@ -11,8 +11,6 @@ namespace programaSolução_InácioDiogoRafael
     {
         public EnumPortalDirection Direction {get; private set;}
         private EnumColor _color;
-        List<Ghost> freeGhosts;
-
 
         public Position pos {get; private set;}
         public Portal(EnumColor color, EnumPortalDirection startDirection, int X0, int Y0)
