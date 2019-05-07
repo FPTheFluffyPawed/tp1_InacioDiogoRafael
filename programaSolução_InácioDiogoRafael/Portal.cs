@@ -7,7 +7,7 @@ namespace programaSolução_InácioDiogoRafael
     /// <summary>
     /// Propriedades da casa Portal. A direção para que estã virado e a cor.
     /// </summary>
-    class Portal : Tile
+    class Portal
     {
         public EnumPortalDirection Direction {get; private set;}
         private EnumColor _color;
@@ -41,5 +41,7 @@ namespace programaSolução_InácioDiogoRafael
                     break;
             }
         }
+
+        public EnumColor GetColor() => _color;
     }
 }
