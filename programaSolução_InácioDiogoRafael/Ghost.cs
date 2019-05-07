@@ -10,5 +10,11 @@ namespace programaSolução_InácioDiogoRafael
     /// </summary>
     class Ghost
     {
+
+        public Ghost(EnumColor ghostColour, Player owner)
+        {
+
+            
+        }
     }
 }
