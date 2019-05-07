@@ -10,7 +10,7 @@ namespace programaSolução_InácioDiogoRafael
     class Portal
     {
         public EnumPortalDirection Direction {get; private set;}
-        EnumColor color;
+        private EnumColor _color;
 
         public Position pos {get; private set;}
         public Portal(EnumColor color, EnumPortalDirection startDirection, int X0, int Y0)
@@ -46,5 +46,7 @@ namespace programaSolução_InácioDiogoRafael
         {
 
         }
+
+        public EnumColor GetColor() => _color;
     }
 }
