@@ -10,30 +10,31 @@ namespace programaSolução_InácioDiogoRafael
             {
                 switch (Defender.color)
                 {
-                    case enumColor.Yellow:
-                    d.UpdatePrisionerList(Defender);
-                    break;
-                    case enumColor.Red:
-                    d.UpdatePrisionerList(Attacker);
-                    break;
+                    case EnumColor.Yellow:
+                        d.UpdatePrisionerList(Defender);
+                        break;
+                    case EnumColor.Red:
+                        d.UpdatePrisionerList(Attacker);
+                        break;
                     default:
-                    break;     
-                    
+                        break;
+
                 }
+            }
 
             else if (Attacker.color == EnumColor.Red)
             {
                 switch (Defender.color)
                 {
-                    case enumColor.Blue:
-                    d.UpdatePrisionerList(Defender);
-                    break;
-                    case enumColor.Yellow:
-                    d.UpdatePrisionerList(Attacker);
-                    break;
+                    case EnumColor.Blue:
+                        d.UpdatePrisionerList(Defender);
+                        break;
+                    case EnumColor.Yellow:
+                        d.UpdatePrisionerList(Attacker);
+                        break;
                     default:
-                    break;     
-                    
+                        break;
+
                 }
 
             }
@@ -42,19 +43,18 @@ namespace programaSolução_InácioDiogoRafael
             {
                 switch (Defender.color)
                 {
-                    case enumColor.Red:
-                    d.UpdatePrisionerList(Defender);
-                    break;
-                    case enumColor.Blue:
-                    d.UpdatePrisionerList(Attacker);
-                    break;
+                    case EnumColor.Red:
+                        d.UpdatePrisionerList(Defender);
+                        break;
+                    case EnumColor.Blue:
+                        d.UpdatePrisionerList(Attacker);
+                        break;
                     default:
-                    break;     
-                    
+                        break;
+
                 }
 
             }
-
 
         }
     }

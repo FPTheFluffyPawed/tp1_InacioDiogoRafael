@@ -14,7 +14,7 @@ namespace programaSolução_InácioDiogoRafael
         public Player owner {get; private set;}
         public EnumColor color {get; private set;}
 
-       public Position pos;
+        public Position pos;
 
         public bool inDungeon {get; set;}
 
