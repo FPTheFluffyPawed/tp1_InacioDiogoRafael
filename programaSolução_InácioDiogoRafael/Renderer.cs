@@ -12,6 +12,14 @@ namespace programaSolução_InácioDiogoRafael
         private char _ghostPlayer2Visual = '&';
         private char[] _portalVisuals = {'←','→','↑','↓'};
 
+
+        public void DrawNumbers()
+        {
+            Console.WriteLine(" 01234");
+            Console.Write("0\n1\n2\n3\n4");
+
+
+        }
         public void DrawTiles(Tile[,] tiles)
         {
             for (int x = 0; x < tiles.GetLength(0); x++ )
@@ -20,7 +28,7 @@ namespace programaSolução_InácioDiogoRafael
                 {
                    
                     
-                        Console.SetCursorPosition(x,y);
+                        Console.SetCursorPosition(x + 1,y + 1);
                     
                     
                     
@@ -35,7 +43,7 @@ namespace programaSolução_InácioDiogoRafael
                         switch(tiles[x,y].GetColor())
                         {
                             case EnumColor.Blue:
-                            Console.ForegroundColor = ConsoleColor.Blue;
+                            Console.ForegroundColor = ConsoleColor.Cyan;
                             break;
 
                             case EnumColor.Red:
@@ -67,12 +75,27 @@ namespace programaSolução_InácioDiogoRafael
             {
 
 
-                Console.SetCursorPosition(portals[i].pos.x, portals[i].pos.y);
+                Console.SetCursorPosition(portals[i].pos.x + 1, portals[i].pos.y + 1);
+                switch(portals[i].GetColor())
+                        {
+                            case EnumColor.Blue:
+                            Console.ForegroundColor = ConsoleColor.Cyan;
+                            break;
+
+                            case EnumColor.Red:
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            break;
+
+                            case EnumColor.Yellow:
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            break;
+
+                            default:
+                            Console.ForegroundColor = ConsoleColor.White;
+                            break;
+
+                        }
                 Console.Write(_portalVisuals[(int)portals[i].Direction]);
-                var x = portals[i].pos.x;
-                var y = portals[i].pos.y;
-
-
             }
             
         }
