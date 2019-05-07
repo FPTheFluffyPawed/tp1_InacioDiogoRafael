@@ -22,5 +22,26 @@ namespace programaSolução_InácioDiogoRafael
             Direction = startDirection;
             pos = new Position(X0,Y0);
         }
+
+        public void ChangeDirection()
+        {
+            switch (Direction)
+            {
+                case EnumPortalDirection.Left:
+                    Direction = EnumPortalDirection.Up;
+                    break;
+                case EnumPortalDirection.Up:
+                    Direction = EnumPortalDirection.Right;
+                    break;
+                case EnumPortalDirection.Right:
+                    Direction = EnumPortalDirection.Down;
+                    break;
+                case EnumPortalDirection.Down:
+                    Direction = EnumPortalDirection.Left;
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 }
