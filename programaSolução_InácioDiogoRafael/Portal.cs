@@ -20,7 +20,6 @@ namespace programaSolução_InácioDiogoRafael
             _color = color;
             Direction = startDirection;
             pos = new Position(X0,Y0);
-            freeGhosts = new List<Ghost>(0);
         }
 
         public void ChangeDirection()
@@ -51,7 +50,7 @@ namespace programaSolução_InácioDiogoRafael
 
             if (_color == ghost.color && pos == ghost.pos)
             {
-                freeGhosts.Add(savedGhost);
+                savedGhost.Add(savedGhost);
                 savedGhost.owner.playerGhosts.Remove(savedGhost);
                 savedGhost.owner.ghostsOut.Add(savedGhost);
             }
