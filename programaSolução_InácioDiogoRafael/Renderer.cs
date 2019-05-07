@@ -12,7 +12,7 @@ namespace programaSolução_InácioDiogoRafael
         private char _ghostPlayer2Visual = '&';
         private char[] _portalVisuals = {'←','→','↑','↓'};
 
-        void DrawTiles(Tile[,] tiles)
+        public void DrawTiles(Tile[,] tiles)
         {
             for (int x = 0; x < tiles.GetLength(0); x++ )
             {
@@ -25,7 +25,7 @@ namespace programaSolução_InácioDiogoRafael
                         Console.Write(_mirrorVisual);
                     }
 
-                    else
+                    else if(tiles[x,y].GetTile() == EnumTileType.Tile)
                     {   
                         switch(tiles[x,y].GetColor())
                         {
@@ -48,15 +48,15 @@ namespace programaSolução_InácioDiogoRafael
                         }
 
                         Console.Write(_tileVisual);
-
                     }
+                    else Console.Write(" ");
 
                 }
             }
 
         }
 
-        void DrawPortals(Portal[] portals)
+        public void DrawPortals(Portal[] portals)
         {
              for (int i = 0; i < portals.Length; i++)
             {
