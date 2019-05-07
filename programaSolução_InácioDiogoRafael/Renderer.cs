@@ -70,7 +70,7 @@ namespace programaSolução_InácioDiogoRafael
         public void DrawPortals(Portal[] portals)
         {
              for (int i = 0; i < portals.Length; i++)
-            {
+             {
 
 
                 Console.SetCursorPosition(portals[i].pos.x + 1, portals[i].pos.y + 1);
