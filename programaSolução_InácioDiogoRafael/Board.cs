@@ -10,12 +10,15 @@ namespace programaSolução_InácioDiogoRafael
     /// </summary>
     class Board
     {
-        Tile[,] Tiles;
+        public Tile[,] Tiles {get; private set;}
+        public Portal[] Portals {get; private set;}
 
         public Board()
         {
             Tiles = new Tile[5, 5];
+            Portals = new Portal[3];
             AssignTileInformation();
+            PlacePortals();
         }
         // Buscar a posição no array e meter a informação.
         public void AssignTileInformation()
@@ -25,7 +28,7 @@ namespace programaSolução_InácioDiogoRafael
             // 1ª linha
             Tiles[0, 0] = new Tile(EnumColor.Blue, EnumTileType.Tile);
             Tiles[0, 1] = new Tile(EnumColor.Red, EnumTileType.Tile);
-            Tiles[0, 2] = new Tile(EnumColor.Red, EnumTileType.Portal);
+            Tiles[0, 2] = new Tile(EnumTileType.Portal); //Red Portal
             Tiles[0, 3] = new Tile(EnumColor.Blue, EnumTileType.Tile);
             Tiles[0, 4] = new Tile(EnumColor.Red, EnumTileType.Tile);
 
@@ -39,9 +42,9 @@ namespace programaSolução_InácioDiogoRafael
             //3ª linha
             Tiles[2, 0] = new Tile(EnumColor.Red, EnumTileType.Tile);
             Tiles[2, 1] = new Tile(EnumColor.Blue, EnumTileType.Tile);
-            Tiles[2, 2] = new Tile(EnumColor.Red, EnumTileType.Portal);
+            Tiles[2, 2] = new Tile(EnumColor.Red, EnumTileType.Tile); 
             Tiles[2, 3] = new Tile(EnumColor.Blue, EnumTileType.Tile);
-            Tiles[2, 4] = new Tile(EnumColor.Yellow, EnumTileType.Portal);
+            Tiles[2, 4] = new Tile(EnumTileType.Portal); //Yellow Portal
 
             //4ª linha
             Tiles[3, 0] = new Tile(EnumColor.Blue, EnumTileType.Tile);
@@ -53,9 +56,21 @@ namespace programaSolução_InácioDiogoRafael
             //5ª linha
             Tiles[4, 0] = new Tile(EnumColor.Yellow, EnumTileType.Tile);
             Tiles[4, 1] = new Tile(EnumColor.Red, EnumTileType.Tile);
-            Tiles[4, 2] = new Tile(EnumColor.Blue, EnumTileType.Portal);
+            Tiles[4, 2] = new Tile(EnumTileType.Portal); // Blue Portal
             Tiles[4, 3] = new Tile(EnumColor.Blue, EnumTileType.Tile);
             Tiles[4, 4] = new Tile(EnumColor.Yellow, EnumTileType.Tile);
+        }
+
+        void PlacePortals()
+        {
+            Portals[0] =
+                new Portal(EnumColor.Red, EnumPortalDirection.Up, 0, 2);
+            Portals[1] = 
+                new Portal(EnumColor.Yellow, EnumPortalDirection.Right, 2, 4);
+            Portals[2] = 
+                new Portal(EnumColor.Blue, EnumPortalDirection.Down, 4, 2);
+
+
         }
 
         /// <summary>
@@ -73,5 +88,6 @@ namespace programaSolução_InácioDiogoRafael
         {
             return Tiles[i, j].GetTile();
         }
+        
     }
 }
