@@ -9,24 +9,30 @@ namespace programaSolução_InácioDiogoRafael
     /// </summary>
     class Portal
     {
-        EnumPortalDirection direction;
+        public EnumPortalDirection Direction {get; private set;}
         EnumColor color;
+        public Portal(EnumColor color, EnumPortalDirection startDirection)
+        {
+            this.color = color;
+            Direction = startDirection;
+        }
+
         // Rodar portal na direção dos ponteiros do relógio
         public void ChangeDirection()
         {
-            switch (direction)
+            switch (Direction)
             {
                 case EnumPortalDirection.Left:
-                    direction = EnumPortalDirection.Up;
+                    Direction = EnumPortalDirection.Up;
                     break;
                 case EnumPortalDirection.Up:
-                    direction = EnumPortalDirection.Right;
+                    Direction = EnumPortalDirection.Right;
                     break;
                 case EnumPortalDirection.Right:
-                    direction = EnumPortalDirection.Down;
+                    Direction = EnumPortalDirection.Down;
                     break;
                 case EnumPortalDirection.Down:
-                    direction = EnumPortalDirection.Left;
+                    Direction = EnumPortalDirection.Left;
                     break;
                 default:
                     break;
