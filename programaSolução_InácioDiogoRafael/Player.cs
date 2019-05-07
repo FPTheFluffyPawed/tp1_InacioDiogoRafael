@@ -13,9 +13,9 @@ namespace programaSolução_InácioDiogoRafael
         /* Usamos uma lista em vez de um array pois é possiver alterar o 
          * conteúdos da mesma dinamicamente */
         // Lista do número de fantasmas que o jogador possui, começando com 9
-        List<Ghost> playerGhosts = new List<Ghost>(9);
+        public List<Ghost> playerGhosts = new List<Ghost>(9);
         // Lista do número de fantasmas que estão na dungeon começando com 0
-        List<Ghost> dungeonGhosts = new List<Ghost>(0);
+        public List<Ghost> dungeonGhosts = new List<Ghost>(0);
 
         static int playersMade = 0;
         public int playerNumber {get; private set;}

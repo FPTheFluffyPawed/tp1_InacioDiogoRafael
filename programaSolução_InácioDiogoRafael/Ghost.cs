@@ -16,7 +16,7 @@ namespace programaSolução_InácioDiogoRafael
 
        public Position pos;
 
-        bool inDungeon;
+        public bool inDungeon {get; set;}
 
         public Ghost(EnumColor ghostColour, Player owner)
         {
