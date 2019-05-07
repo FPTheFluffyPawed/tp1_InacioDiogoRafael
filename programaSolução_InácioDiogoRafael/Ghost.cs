@@ -10,11 +10,25 @@ namespace programaSolução_InácioDiogoRafael
     /// </summary>
     class Ghost
     {
+        
+        public Player owner {get; private set;}
+        public EnumColor color {get; private set;}
+
+       public Position pos;
+
+        bool inDungeon;
 
         public Ghost(EnumColor ghostColour, Player owner)
         {
-
-            
+            pos = new Position();
+            color = ghostColour;
+            this.owner = owner;
+            inDungeon = false;
         }
+
+        public void ChangeOwner(Player newOwner) => owner = newOwner;
+
+
+
     }
 }
