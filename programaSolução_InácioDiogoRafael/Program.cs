@@ -14,8 +14,8 @@ namespace programaSolução_InácioDiogoRafael
 
 
             renderer.DrawNumbers();
-            renderer.DrawTiles(board.Tiles);
             renderer.DrawPortals(board.Portals);
+            renderer.DrawTiles(board.Tiles);
 
             /*Console.WriteLine("Cor = {0}    Tipo = {1}", board.GetTileColor(0, 0), board.GetTileType(0, 0));
             Console.WriteLine("Cor = {0}    Tipo = {1}", board.GetTileColor(0, 1), board.GetTileType(0, 1));

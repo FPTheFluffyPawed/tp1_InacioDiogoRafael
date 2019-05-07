@@ -69,7 +69,9 @@ namespace programaSolução_InácioDiogoRafael
 
         public void DrawPortals(Portal[] portals)
         {
-             for (int i = 0; i < portals.Length; i++)
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+
+            for (int i = 0; i < portals.Length; i++)
              {
 
 
