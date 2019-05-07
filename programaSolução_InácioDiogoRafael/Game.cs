@@ -9,6 +9,16 @@ namespace programaSolução_InácioDiogoRafael
     /// </summary>
     class Game
     {
+        /*Maneira de alternar quase infinitamente pelos dois jogadores:
+        Player[] players = new Player[2];
+        Player currentPlayer;
 
+        for (int i = 0; i > 888; i++)
+        {
+            currentPlayer = players[i % 2];
+        }
+        
+        Podemos usar isto para ir alternando turnos sem ter ifs feiosos
+        */
     }
 }
