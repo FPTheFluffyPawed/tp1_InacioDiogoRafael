@@ -11,10 +11,13 @@ namespace programaSolução_InácioDiogoRafael
     {
         public EnumPortalDirection Direction {get; private set;}
         EnumColor color;
-        public Portal(EnumColor color, EnumPortalDirection startDirection)
+
+        public Position pos {get; private set;}
+        public Portal(EnumColor color, EnumPortalDirection startDirection, int X0, int Y0)
         {
             this.color = color;
             Direction = startDirection;
+            pos = new Position(X0,Y0);
         }
 
         // Rodar portal na direção dos ponteiros do relógio
