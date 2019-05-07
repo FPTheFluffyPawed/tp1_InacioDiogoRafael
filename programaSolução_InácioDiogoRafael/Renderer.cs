@@ -19,17 +19,38 @@ namespace programaSolução_InácioDiogoRafael
                 for (int y = 0; y < tiles.GetLength(1); y++ )
                 {
                     Console.SetCursorPosition(x,y);
-                    switch(tiles[x,y].GetTile())
+                    if(tiles[x,y].GetTile() == EnumTileType.Mirror)
                     {
-                        case EnumTileType.Tile:
-                        Console.Write(_tileVisual);
-                        break;
-                        case EnumTileType.Mirror:
+                        Console.ForegroundColor = ConsoleColor.White;
                         Console.Write(_mirrorVisual);
-                        break;
-                        default:
-                        break;
                     }
+
+                    else
+                    {   
+                        switch(tiles[x,y].GetColor())
+                        {
+                            case EnumColor.Blue:
+                            Console.ForegroundColor = ConsoleColor.Blue;
+                            break;
+
+                            case EnumColor.Red:
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            break;
+
+                            case EnumColor.Yellow:
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            break;
+
+                            default:
+                            Console.ForegroundColor = ConsoleColor.White;
+                            break;
+
+                        }
+
+                        Console.Write(_tileVisual);
+
+                    }
+
                 }
             }
 
