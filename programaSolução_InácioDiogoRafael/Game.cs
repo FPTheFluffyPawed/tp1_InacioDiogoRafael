@@ -9,6 +9,7 @@ namespace programaSolução_InácioDiogoRafael
     /// </summary>
     class Game
     {
+
         /*Maneira de alternar quase infinitamente pelos dois jogadores:
         Player[] players = new Player[2];
         Player currentPlayer;

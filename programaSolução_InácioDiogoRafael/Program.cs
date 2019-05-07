@@ -10,11 +10,18 @@ namespace programaSolução_InácioDiogoRafael
             // CODIGO TESTE
             // verificação se consige buscar informação do Tile
             Board board = new Board();
-            Console.WriteLine("Cor = {0}    Tipo = {1}", board.GetTileColor(0, 0), board.GetTileType(0, 0));
+            Renderer renderer = new Renderer();
+
+
+            renderer.DrawNumbers();
+            renderer.DrawTiles(board.Tiles);
+            renderer.DrawPortals(board.Portals);
+
+            /*Console.WriteLine("Cor = {0}    Tipo = {1}", board.GetTileColor(0, 0), board.GetTileType(0, 0));
             Console.WriteLine("Cor = {0}    Tipo = {1}", board.GetTileColor(0, 1), board.GetTileType(0, 1));
             Console.WriteLine("Cor = {0}    Tipo = {1}", board.GetTileColor(0, 2), board.GetTileType(0, 2));
             Console.WriteLine("Cor = {0}    Tipo = {1}", board.GetTileColor(0, 3), board.GetTileType(0, 3));
-            Console.WriteLine("Cor = {0}    Tipo = {1}", board.GetTileColor(0, 4), board.GetTileType(0, 4));
+            Console.WriteLine("Cor = {0}    Tipo = {1}", board.GetTileColor(0, 4), board.GetTileType(0, 4));*/
 
             //parte complicada, testar introduzir fantasmas, não tem verificação mas podera ter no futuro em Player inputs
             // resumo: array utilizado para introduzir os valores, separar os valores, transformar em duas variaveis separadas e inserir para buscar
