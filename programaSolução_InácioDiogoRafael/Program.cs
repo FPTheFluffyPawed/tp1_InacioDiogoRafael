@@ -15,8 +15,24 @@ namespace programaSolução_InácioDiogoRafael
             /* Verifica os argumentos inseridos na consola. Se for inserido o
             argumento --quick, será iniciado o modo "quick" em que a 
             a condição de vitória é diferente. */
-            if (args[0] == "--quick") gm = new Game(true);
-            else gm = new Game(false);
+            Console.Clear();
+            if (args.Length > 0)
+            {
+                if (args[0] == "--quick") 
+                {
+
+                    gm = new Game(true);
+                    gm.GameLoop();
+
+                }
+            }
+            else 
+            {
+                gm = new Game(false);
+                gm.GameLoop();
+            }
+            
+            Console.ReadLine();
         }
     }
 }

@@ -30,6 +30,8 @@ namespace programaSolução_InácioDiogoRafael
         /// </summary>
         public void DrawNumbers()
         {
+            Console.Clear();
+
             // Números horizontais.
             Console.WriteLine(" 01234");
             // Números verticais.
@@ -176,6 +178,12 @@ namespace programaSolução_InácioDiogoRafael
                 "-----------");
         }
 
+        public void ShowPrompt(string msg, Player currP)
+        {
+            Console.Write($"Jogador{currP.playerNumber}: " + msg);
+        }
+        //public void ShowPrompt(string msg, )
+
         /// <summary>
         /// Método para definir a cor do texto na consola.
         /// </summary>
@@ -203,5 +211,7 @@ namespace programaSolução_InácioDiogoRafael
                  break;
             }        
         }
+
+
     }
 }

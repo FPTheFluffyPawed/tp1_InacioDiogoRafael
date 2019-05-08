@@ -89,7 +89,7 @@ namespace programaSolução_InácioDiogoRafael
         /// <param name="i">X</param>
         /// <param name="j">Y</param>
         /// <returns></returns>
-        public object GetTileColor(int i, int j)
+        public EnumColor GetTileColor(int i, int j)
         {
             return Tiles[i, j].GetColor();
         }
@@ -100,9 +100,19 @@ namespace programaSolução_InácioDiogoRafael
         /// <param name="i">X</param>
         /// <param name="j">Y</param>
         /// <returns></returns>
-        public object GetTileType(int i, int j)
+        public EnumTileType GetTileType(int i, int j)
         {
             return Tiles[i, j].GetTile();
         }
+
+        public void PlaceGhostOnTile(Ghost g, int newX, int newY)
+        {
+            Tiles[g.pos.x, g.pos.y].ghostOnTile = null;
+            Tiles[newX, newY].ghostOnTile = g;
+            g.UpdatePosition(newX, newY, 
+            Tiles[newX, newY].GetTile() == EnumTileType.Mirror);
+
+        }
+
     }
 }

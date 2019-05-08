@@ -14,13 +14,23 @@ namespace programaSolução_InácioDiogoRafael
         Player[] players = new Player[2];
         // Variável para selecionar o jogador.
         Player currentPlayer;
-
+        
 
         private bool _fastMode;
 
         private Board _board;
         private Dungeon _dungeon;
         private Renderer _renderer;
+
+        private string _input;
+        private int _inputInt;
+        private int _inIntX;
+        private int _inIntY;
+        private string[] _inputArr;
+
+        private Ghost g1;
+        private Ghost g2;
+
 
         /// <summary>
         /// Construtor para criar o jogo, utilizando 'fastMode'
@@ -46,8 +56,10 @@ namespace programaSolução_InácioDiogoRafael
             for(int i = 0; i < 888; i++)
             {
                 currentPlayer = players[i % 2];
-
+                currentPlayer.selectedGhost = null;
                 // Desenha o mapa do jogo.
+                Console.WriteLine(_fastMode);
+                Console.ReadLine();
                 _renderer.DrawNumbers();
                 _renderer.DrawTiles(_board.Tiles);
                 _renderer.DrawPortals(_board.Portals);
@@ -56,14 +68,75 @@ namespace programaSolução_InácioDiogoRafael
             
                 // NOTA:
                 // Perguntar e tratar do comando inserido.
+                _renderer.ShowPrompt(PromptMessages.SelectGhost, currentPlayer);
+                _input = Console.ReadLine();
+                if(InputValidate.CheckSelectGhost(_input,currentPlayer))
+                {
+                    if (_input.Contains('d')) 
+                    {
+                        _inputInt = Int32.Parse(_input.Remove(0,1));
+                        currentPlayer.dungeonGhosts[_inputInt].ChangeOwner(players[currentPlayer.playerNumber % 2]);
 
-            
+                    }
+                    else
+                    {
+                        _inputInt = Int32.Parse(_input);
+                        currentPlayer.selectedGhost = currentPlayer.playerGhosts[_inputInt]; 
+                    }
+
+                }
+                if(currentPlayer.selectedGhost != null)
+                {
+                    _renderer.ShowPrompt(PromptMessages.SelectTile, currentPlayer);
+                    _input = Console.ReadLine();
+                    if(InputValidate.CheckSelectTile(_input, _board.Tiles))
+                    {
+                        _inputArr = _input.Split(',');
+                        _inIntX = Int32.Parse(_inputArr[0]);
+                        _inIntY = Int32.Parse(_inputArr[1]);
+
+                        g1 = currentPlayer.selectedGhost;
+                        foreach(Position p in g1.possiblePos)
+                        {
+                            if(p.x == _inIntX && p.y == _inIntY)
+                            {
+                                if(_board.Tiles[_inIntX,_inIntY].ghostOnTile 
+                                != null) 
+                                {   
+                                    g2 = 
+                                    _board.Tiles[_inIntX,_inIntY].ghostOnTile;
+
+                                    if(g2.color != g1.color)
+                                    {
+                                        if(GhostFight.Resolve(g1, g2, _dungeon))
+                                            _board.PlaceGhostOnTile(g1,_inIntX, _inIntY);
+
+                                    }
+
+                                }
+                                else  _board.PlaceGhostOnTile(
+                                        g1,_inIntX, _inIntY);
+                            }
+
+
+                        }
+                        
+                    }
+
+
+                }
+                
+
+
+
+                //Input.
+
+                // Verificar se o jogador ganhou.
+                if(WinCondition()) break;
+
                 // NOTA:
                 // Termina a vez de o jogador.
 
-            
-                // Verificar se o jogador ganho.
-                if(WinCondition()) break;
                 }
         }
 
