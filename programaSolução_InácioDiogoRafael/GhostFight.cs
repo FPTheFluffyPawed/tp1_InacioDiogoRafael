@@ -13,10 +13,11 @@ namespace programaSolução_InácioDiogoRafael
         /// </summary>
         /// <param name="Attacker">Fantasma atacante.</param>
         /// <param name="Defender">Fantasma defensor.</param>
-        /// <param name="d">Chamar a masmorra.</param>
+        /// <param name="d">Refência á masmorra a utilizar.</param>
         static void Resolve(Ghost Attacker, Ghost Defender, Dungeon d)
         {
-            // Se o atacante for azul, perder contra vermelho e ganhar contra amarelo.
+            // Se o atacante for azul, perder contra vermelho e ganhar contra 
+            // amarelo.
             if (Attacker.color == EnumColor.Blue)
             {
                 switch (Defender.color)
@@ -32,7 +33,8 @@ namespace programaSolução_InácioDiogoRafael
                 }
             }
 
-            // Se o atacante for vermelho, perder contra amarelo e ganhar contra azul.
+            // Se o atacante for vermelho, perder contra amarelo e ganhar
+            // contra azul.
             else if (Attacker.color == EnumColor.Red)
             {
                 switch (Defender.color)
@@ -48,7 +50,8 @@ namespace programaSolução_InácioDiogoRafael
                 }
             }
 
-            // Se o atacante for amarelo, perder contra azul e ganhar contra vermelho.
+            // Se o atacante for amarelo, perder contra azul e ganhar
+            // contra vermelho.
             else if (Attacker.color == EnumColor.Yellow)
             {
                 switch (Defender.color)

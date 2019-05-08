@@ -15,7 +15,7 @@ namespace programaSolução_InácioDiogoRafael
         /// Verificar se a posição selecionada é válida no mapa.
         /// </summary>
         /// <param name="currentInput">Comando introduzido.</param>
-        /// <param name="tileArray">Posição inserida.</param>
+        /// <param name="tileArray">Posição a ser verificada.</param>
         /// <returns>Returna a verificação como válida ou não.</returns>
         static bool CheckSelectTile(string currentInput, Tile[,] tileArray)
         {
@@ -30,7 +30,7 @@ namespace programaSolução_InácioDiogoRafael
             }
             else 
             {
-                if (tileArray[Int32.Parse(coords[0]),Int32.Parse(coords[1])] 
+                if (tileArray[Int32.Parse(coords[0]),Int32.Parse(coords[1])]
                 != null)
                 {
                     return true;
@@ -43,7 +43,7 @@ namespace programaSolução_InácioDiogoRafael
         /// Verificação se o fantasma selecionado é valido.
         /// </summary>
         /// <param name="currentInput">Comando introduzido.</param>
-        /// <param name="ghostArray">Fantasma inserido.</param>
+        /// <param name="ghostArray">Fantasma a ser verificado.</param>
         /// <returns></returns>
         static bool CheckSelectGhost(string currentInput, Ghost[] ghostArray)
         {

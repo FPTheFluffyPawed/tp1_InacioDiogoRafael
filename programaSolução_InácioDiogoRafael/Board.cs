@@ -34,7 +34,7 @@ namespace programaSolução_InácioDiogoRafael
             // 1ª linha.
             Tiles[0, 0] = new Tile(EnumColor.Blue, EnumTileType.Tile);
             Tiles[1, 0] = new Tile(EnumColor.Red, EnumTileType.Tile);
-            Tiles[2, 0] = new Tile(EnumTileType.Portal);                    //Red Portal
+            Tiles[2, 0] = new Tile(EnumTileType.Portal);        //Red Portal
             Tiles[3, 0] = new Tile(EnumColor.Blue, EnumTileType.Tile);
             Tiles[4, 0] = new Tile(EnumColor.Red, EnumTileType.Tile);
 
@@ -50,7 +50,7 @@ namespace programaSolução_InácioDiogoRafael
             Tiles[1, 2] = new Tile(EnumColor.Blue, EnumTileType.Tile);
             Tiles[2, 2] = new Tile(EnumColor.Red, EnumTileType.Tile); 
             Tiles[3, 2] = new Tile(EnumColor.Blue, EnumTileType.Tile);
-            Tiles[4, 2] = new Tile(EnumTileType.Portal);                    //Yellow Portal
+            Tiles[4, 2] = new Tile(EnumTileType.Portal);        //Yellow Portal
 
             //4ª linha.
             Tiles[0, 3] = new Tile(EnumColor.Blue, EnumTileType.Tile);
@@ -62,13 +62,14 @@ namespace programaSolução_InácioDiogoRafael
             //5ª linha.
             Tiles[0, 4] = new Tile(EnumColor.Yellow, EnumTileType.Tile);
             Tiles[1, 4] = new Tile(EnumColor.Red, EnumTileType.Tile);
-            Tiles[2, 4] = new Tile(EnumTileType.Portal);                    // Blue Portal
+            Tiles[2, 4] = new Tile(EnumTileType.Portal);        // Blue Portal
             Tiles[3, 4] = new Tile(EnumColor.Blue, EnumTileType.Tile);
             Tiles[4, 4] = new Tile(EnumColor.Yellow, EnumTileType.Tile);
         }
 
         /// <summary>
-        /// Metódo para assinalar os portais nas posições corretas com as suas cores.
+        /// Metódo para assinalar os portais nas posições corretas com as
+        /// suas cores.
         /// </summary>
         void PlacePortals()
         {

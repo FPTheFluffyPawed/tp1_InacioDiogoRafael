@@ -5,7 +5,8 @@ using System.Text;
 namespace programaSolução_InácioDiogoRafael
 {
     /// <summary>
-    /// Controla o flow do jogo, a condição de vitória, os jogadores, o turno e o loop.
+    /// Controla o flow do jogo, a condição de vitória, os jogadores, o turno
+    /// e o loop.
     /// </summary>
     class Game
     {
@@ -25,7 +26,7 @@ namespace programaSolução_InácioDiogoRafael
         /// Construtor para criar o jogo, utilizando 'fastMode'
         /// para inicializar.
         /// </summary>
-        /// <param name="fastMode">'true' ou 'false'</param>
+        /// <param name="fastMode">Verificar se 'fastMode' está ativo.</param>
         public Game(bool fastMode)
         {
             _fastMode = fastMode;
@@ -80,7 +81,8 @@ namespace programaSolução_InácioDiogoRafael
             bool outBlue = false;
             bool outYellow = false;
 
-            // Verificação para o modo rápido do jogo, que vê se existe 3 fantasmas fora.
+            // Verificação para o modo rápido do jogo, que vê se existe
+            // 3 fantasmas fora.
             if (_fastMode)
             {
                 if (currentPlayer.ghostsOut.Count >= 3)
@@ -91,16 +93,18 @@ namespace programaSolução_InácioDiogoRafael
                 }
             }
 
-            // Verificação para o modo normal do jogo, que vê se existem três fantasmas com cores
-            // unícas.
+            // Verificação para o modo normal do jogo, que vê se existem três
+            // fantasmas com cores unícas.
             else if (!_fastMode)
             {
                 // NOTA:
-                // Verificar se a lista está vazia antes de introduzir o metódo.
+                // Verificar se a lista está vazia antes de introduzir o
+                // metódo.
 
 
-                // Para cada fantasma na lista de fantasmas fora do mapa, pertencente a um jogador,
-                // verificar se um fantasma da cor está presente, e assinalar.
+                // Para cada fantasma na lista de fantasmas fora do mapa,
+                // pertencente a um jogador, verificar se um fantasma da cor
+                // está presente, e assinalar.
                 foreach (Ghost g in currentPlayer.ghostsOut)
                 {
                     if (g.color == EnumColor.Red) outRed = true;
@@ -108,7 +112,8 @@ namespace programaSolução_InácioDiogoRafael
                     if (g.color == EnumColor.Yellow) outYellow = true;
                 }
 
-                // Se as três cores estiverem presentes, returnamos verdade a condição vitória.
+                // Se as três cores estiverem presentes, returnamos verdade a
+                // condição vitória.
                 if (outRed && outBlue && outYellow) return true;
             }
 
