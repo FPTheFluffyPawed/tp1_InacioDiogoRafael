@@ -15,7 +15,7 @@ namespace programaSolução_InácioDiogoRafael
 
         public Position pos {get; private set;}
 
-        Position posToCheck;;
+        Position posToCheck;
 
         public Portal(EnumColor color, EnumPortalDirection startDirection, int X0, int Y0)
         {
@@ -23,7 +23,7 @@ namespace programaSolução_InácioDiogoRafael
             Direction = startDirection;
             pos = new Position(X0,Y0);
             freeGhosts = new List<Ghost>(0);
-            posToCheck = new Position(pos.x, pos.y)
+            posToCheck = new Position(pos.x, pos.y);
         }
 
         public EnumColor GetColor() => _color;
