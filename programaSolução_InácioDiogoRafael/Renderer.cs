@@ -37,25 +37,7 @@ namespace programaSolução_InácioDiogoRafael
 
                     else if(tiles[x,y].GetTile() == EnumTileType.Tile)
                     {   
-                        switch(tiles[x,y].GetColor())
-                        {
-                            case EnumColor.Blue:
-                            Console.ForegroundColor = ConsoleColor.Cyan;
-                            break;
-
-                            case EnumColor.Red:
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            break;
-
-                            case EnumColor.Yellow:
-                            Console.ForegroundColor = ConsoleColor.Yellow;
-                            break;
-
-                            default:
-                            Console.ForegroundColor = ConsoleColor.White;
-                            break;
-
-                        }
+                        TextColorSwitcher(tiles[x,y].GetColor());
 
                         Console.Write(_tileVisual);
                     }
@@ -73,29 +55,58 @@ namespace programaSolução_InácioDiogoRafael
             for (int i = 0; i < portals.Length; i++)
              {
 
-
                 Console.SetCursorPosition(portals[i].pos.x + 1, portals[i].pos.y + 1);
-                switch(portals[i].GetColor())
-                        {
-                            case EnumColor.Blue:
-                            Console.ForegroundColor = ConsoleColor.Cyan;
-                            break;
-
-                            case EnumColor.Red:
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            break;
-
-                            case EnumColor.Yellow:
-                            Console.ForegroundColor = ConsoleColor.Yellow;
-                            break;
-
-                            default:
-                            Console.ForegroundColor = ConsoleColor.White;
-                            break;
-
-                        }
+                TextColorSwitcher(portals[i].GetColor());
                 Console.Write(_portalVisuals[(int)portals[i].Direction]);
             }
         }
+
+        public void DrawPlayerGhostList(Player currentPlayer)
+        {
+
+            char c = ' ';
+            Ghost g;
+            Console.SetCursorPosition(15,0);
+            Console.WriteLine("Your Ghosts, type the number on the left to select them.\n\n");
+            
+            if (currentPlayer.playerNumber == 1) c = _ghostPlayer1Visual;
+            else if (currentPlayer.playerNumber == 2) c = _ghostPlayer2Visual;
+
+            for (int i = 0; i < currentPlayer.playerGhosts.Count; i++)
+            {
+                Console.CursorLeft = 15;
+                g = currentPlayer.playerGhosts[i];
+                TextColorSwitcher(g.color);
+                Console.Write($"[{i}] - {c}, at ({g.pos.x},{g.pos.y})\n");
+
+            }
+
+        }
+
+        private void TextColorSwitcher(EnumColor c)
+        {
+
+            switch(c)
+            {
+                case EnumColor.Blue:
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                break;
+
+                case EnumColor.Red:
+                Console.ForegroundColor = ConsoleColor.Red;
+                break;
+
+                case EnumColor.Yellow:
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                break;
+
+                default:
+                 Console.ForegroundColor = ConsoleColor.White;
+                 break;
+
+            }        
+
+        }
+
     }
 }
