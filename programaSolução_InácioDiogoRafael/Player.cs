@@ -16,8 +16,10 @@ namespace programaSolução_InácioDiogoRafael
         public List<Ghost> playerGhosts = new List<Ghost>(9);
         // Lista do número de fantasmas que estão na dungeon começando com 0
         public List<Ghost> dungeonGhosts = new List<Ghost>(0);
+
         // Lista do número de fantasmas que estão fora de jogo
         public List<Ghost> ghostsOut = new List<Ghost>(0);
+        
 
         static int playersMade = 0;
         public int playerNumber {get; private set;}
@@ -30,19 +32,18 @@ namespace programaSolução_InácioDiogoRafael
             playersMade++;
             for (int r = 0; r < 3; r++)
             {
-                for (int y = 0; y < 3; y++)
-                {
-                    for (int b = 0; b < 3; b++)
-                    {
-                        playerGhosts.Add(new Ghost(EnumColor.Blue, this));  
-                    }
-
-                   playerGhosts.Add(new Ghost(EnumColor.Yellow, this)); 
-                }
-
                 playerGhosts.Add(new Ghost(EnumColor.Red, this));
             }
 
+            for (int b = 0; b < 3; b++)
+            {
+                playerGhosts.Add(new Ghost(EnumColor.Blue, this));  
+            }            
+
+            for (int y = 0; y < 3; y++)
+            {
+                playerGhosts.Add(new Ghost(EnumColor.Yellow, this)); 
+            }
 
 
         }

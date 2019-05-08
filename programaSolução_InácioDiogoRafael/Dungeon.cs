@@ -12,6 +12,7 @@ namespace programaSolução_InácioDiogoRafael
             prisioners = new List<Ghost>(0);
         }
 
+        public List<Ghost> GetPrisionerList() => prisioners;
         public void UpdatePrisionerList(Ghost newGuy)
         {
             prisioners.Add(newGuy);
