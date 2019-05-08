@@ -10,11 +10,12 @@ namespace programaSolução_InácioDiogoRafael
         /// <summary>
         /// Metódo para tratar a luta, resolvendo o conflito e
         /// verificar as cores.
+        /// Retorna True se o atacante ganhar
         /// </summary>
         /// <param name="Attacker">Fantasma atacante.</param>
         /// <param name="Defender">Fantasma defensor.</param>
         /// <param name="d">Refência á masmorra a utilizar.</param>
-        static void Resolve(Ghost Attacker, Ghost Defender, Dungeon d)
+        public static bool Resolve(Ghost Attacker, Ghost Defender, Dungeon d)
         {
             // Se o atacante for azul, perder contra vermelho e ganhar contra 
             // amarelo.
@@ -24,12 +25,14 @@ namespace programaSolução_InácioDiogoRafael
                 {
                     case EnumColor.Yellow:
                         d.UpdatePrisionerList(Defender);
-                        break;
+                        return true;
+                        
                     case EnumColor.Red:
                         d.UpdatePrisionerList(Attacker);
-                        break;
+                        return false;
+                        
                     default:
-                        break;
+                        return false;
                 }
             }
 
@@ -41,12 +44,12 @@ namespace programaSolução_InácioDiogoRafael
                 {
                     case EnumColor.Blue:
                         d.UpdatePrisionerList(Defender);
-                        break;
+                        return true;
                     case EnumColor.Yellow:
                         d.UpdatePrisionerList(Attacker);
-                        break;
+                        return false;
                     default:
-                        break;
+                        return false;
                 }
             }
 
@@ -58,14 +61,15 @@ namespace programaSolução_InácioDiogoRafael
                 {
                     case EnumColor.Red:
                         d.UpdatePrisionerList(Defender);
-                        break;
+                        return true;
                     case EnumColor.Blue:
                         d.UpdatePrisionerList(Attacker);
-                        break;
+                        return false;
                     default:
-                        break;
+                        return false;
                 }
             }
+            else return false;
         }
     }
 }
