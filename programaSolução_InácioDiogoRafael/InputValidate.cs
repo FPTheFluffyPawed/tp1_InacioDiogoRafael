@@ -45,7 +45,7 @@ namespace programaSolução_InácioDiogoRafael
         /// <param name="currentInput">Comando introduzido.</param>
         /// <param name="ghostArray">Fantasma a ser verificado.</param>
         /// <returns></returns>
-        public static bool CheckSelectGhost(string currentInput, Player p, Dungeon d)
+        public static bool CheckSelectGhost(string currentInput, Player p)
         {
             int i;
 
@@ -54,9 +54,9 @@ namespace programaSolução_InácioDiogoRafael
                 if (Int32.TryParse(currentInput.Remove(0,1), out int g))
                 {
                     //i = Int32.Parse(currentInput.Remove(0,1));
-                    if(g > 0 && g < d.GetPrisionerList().Count)
+                    if(g > 0 && g < p.dungeonGhosts.Count)
                     {
-                        if (d.GetPrisionerList()[g] != null) return true;
+                        if (p.dungeonGhosts[g] != null) return true;
                         else return false;
                     }
                     else return false;
