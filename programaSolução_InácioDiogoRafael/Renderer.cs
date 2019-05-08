@@ -69,7 +69,7 @@ namespace programaSolução_InácioDiogoRafael
 
         public void DrawPlayerGhostList(Player currentPlayer)
         {
-
+            Console.ForegroundColor = ConsoleColor.White;
             char c = ' ';
             Ghost g;
             Console.SetCursorPosition(30,0);
@@ -95,6 +95,7 @@ namespace programaSolução_InácioDiogoRafael
 
         public void DrawDungeonGhostList(Dungeon dung)
         {
+            Console.ForegroundColor = ConsoleColor.White;
             char c = ' ';
             Ghost g;
             
@@ -122,7 +123,7 @@ namespace programaSolução_InácioDiogoRafael
 
             Console.CursorLeft = 70;
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("------------------------------------");
+            Console.WriteLine("--------------------------------------------------------");
         }
 
         private void TextColorSwitcher(EnumColor c)
