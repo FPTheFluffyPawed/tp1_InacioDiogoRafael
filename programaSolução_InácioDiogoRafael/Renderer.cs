@@ -27,7 +27,7 @@ namespace programaSolução_InácioDiogoRafael
                 for (int y = 0; y < tiles.GetLength(1); y++ )
                 {
 
-                    Console.SetCursorPosition(x + 1,y + 1);
+                    Console.SetCursorPosition(x + 1, y + 1);
                     
                     if(tiles[x,y].GetTile() == EnumTileType.Mirror)
                     {
@@ -68,7 +68,9 @@ namespace programaSolução_InácioDiogoRafael
 
         public void DrawPortals(Portal[] portals)
         {
-             for (int i = 0; i < portals.Length; i++)
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+
+            for (int i = 0; i < portals.Length; i++)
              {
 
 

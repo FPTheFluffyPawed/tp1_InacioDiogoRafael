@@ -16,6 +16,17 @@ namespace programaSolução_InácioDiogoRafael
             renderer.DrawTiles(board.Tiles);
             renderer.DrawPortals(board.Portals);
 
+            renderer.DrawNumbers();
+            renderer.DrawPortals(board.Portals);
+            renderer.DrawTiles(board.Tiles);
+
+            /*Console.WriteLine("Cor = {0}    Tipo = {1}", board.GetTileColor(0, 0), board.GetTileType(0, 0));
+            Console.WriteLine("Cor = {0}    Tipo = {1}", board.GetTileColor(0, 1), board.GetTileType(0, 1));
+            Console.WriteLine("Cor = {0}    Tipo = {1}", board.GetTileColor(0, 2), board.GetTileType(0, 2));
+            Console.WriteLine("Cor = {0}    Tipo = {1}", board.GetTileColor(0, 3), board.GetTileType(0, 3));
+            Console.WriteLine("Cor = {0}    Tipo = {1}", board.GetTileColor(0, 4), board.GetTileType(0, 4));*/
+
+
             //parte complicada, testar introduzir fantasmas, não tem verificação mas podera ter no futuro em Player inputs
             // resumo: array utilizado para introduzir os valores, separar os valores, transformar em duas variaveis separadas e inserir para buscar
             // é IMPORTANTE que seja introduzido "<numero> <numero>" senão dá erro
