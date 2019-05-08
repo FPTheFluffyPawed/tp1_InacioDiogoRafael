@@ -9,16 +9,24 @@ namespace programaSolução_InácioDiogoRafael
     /// </summary>
     class Game
     {
-        /*Maneira de alternar quase infinitamente pelos dois jogadores:
         Player[] players = new Player[2];
         Player currentPlayer;
 
-        for (int i = 0; i > 888; i++)
+        public void WinCondition(Player player)
         {
-            currentPlayer = players[i % 2];
+            if (player.ghostsOut.Count == 3)
+            {
+                Console.WriteLine("Winner Winner Chicken Dinner!");
+                Console.ReadKey();
+            }
         }
-        
-        Podemos usar isto para ir alternando turnos sem ter ifs feiosos
-        */
+
+        public void playerTurn()
+        {
+            for(int i = 0; i < 888; i++)
+            {
+                currentPlayer = players[i % 2];
+            }
+        }
     }
 }

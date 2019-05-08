@@ -11,7 +11,6 @@ namespace programaSolução_InácioDiogoRafael
     /// </summary>
     static class InputValidate
     {
-        
         static bool CheckSelectTile(string currentInput, Tile[,] tileArray)
         {
             string[] coords;
@@ -41,7 +40,5 @@ namespace programaSolução_InácioDiogoRafael
             else return false;
             
         }
-
-
     }
 }

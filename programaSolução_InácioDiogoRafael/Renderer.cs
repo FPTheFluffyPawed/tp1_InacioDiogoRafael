@@ -15,7 +15,6 @@ namespace programaSolução_InácioDiogoRafael
         private char _ghostPlayer2Visual = '&';
         private char[] _portalVisuals = {'←','→','↑','↓'};
 
-
         public void DrawNumbers()
         {
             Console.WriteLine(" 01234");
@@ -97,7 +96,4 @@ namespace programaSolução_InácioDiogoRafael
             }
         }
     }
-
-
-
 }

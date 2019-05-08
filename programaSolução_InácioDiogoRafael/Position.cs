@@ -15,12 +15,9 @@ namespace programaSolução_InácioDiogoRafael
         {
             x = initialX;
             y = initialY;
-
         }
 
         public Position(){}
-
-
     }
 
 

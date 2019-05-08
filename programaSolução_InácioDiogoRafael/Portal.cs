@@ -11,6 +11,7 @@ namespace programaSolução_InácioDiogoRafael
     {
         public EnumPortalDirection Direction {get; private set;}
         private EnumColor _color;
+        List<Ghost> freeGhosts;
 
         public Position pos {get; private set;}
         public Portal(EnumColor color, EnumPortalDirection startDirection, int X0, int Y0)
@@ -18,6 +19,7 @@ namespace programaSolução_InácioDiogoRafael
             _color = color;
             Direction = startDirection;
             pos = new Position(X0,Y0);
+            freeGhosts = new List<Ghost>(0);
         }
 
         public void ChangeDirection()
@@ -40,20 +42,46 @@ namespace programaSolução_InácioDiogoRafael
                     break;
             }
         }
-
-        public void FreeGhosts(int i, int j, Ghost savedGhost)
+        
+        public void FreeGhosts()
         {
-            Player p1 = new Player();
-            Ghost ghost = new Ghost(EnumColor.Red, p1);
+            Position posToCheck = new Position(pos.x, pos.y);
 
-            if (_color == ghost.color && pos == ghost.pos)
+            switch (Direction)
             {
-                savedGhost.Add(savedGhost);
-                savedGhost.owner.playerGhosts.Remove(savedGhost);
-                savedGhost.owner.ghostsOut.Add(savedGhost);
-            }
+                case EnumPortalDirection.Left:
+                    posToCheck.y = pos.x - 1;
+                    break;
+                case EnumPortalDirection.Up:
+                    posToCheck.y = pos.y + 1;
+                    break;
+                case EnumPortalDirection.Right:
+                    posToCheck.y = pos.x + 1;
+                    break;
+                case EnumPortalDirection.Down:
+                    posToCheck.y = pos.y - 1;
+                    break;
+                default:
+                    break;
         }
 
+        public void FreeGhosts(Board board)
+        {
+            Tile checkedTile;
+            checkedTile = board.Tiles[posToCheck.x, posToCheck.y];
+            Ghost ghostToSave;
+            ghostToSave = checkedTile.GetGhostOnTile;
+
+            if (ghostToSave != null)
+                {
+                    if (_color == ghostToSave.color)
+                    {
+                        freeGhosts.Add(ghostToSave);
+                        ghostToSave.owner.playerGhosts.Remove(ghostToSave);
+                        ghostToSave.owner.ghostsOut.Add(ghostToSave);
+                    }
+                }
+            }
         public EnumColor GetColor() => _color;
     }
 }
