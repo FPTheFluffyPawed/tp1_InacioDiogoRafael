@@ -87,7 +87,7 @@ namespace programaSolução_InácioDiogoRafael
         }
 
         /// <summary>
-        /// Desenha os fantasmas dos jogadores.
+        /// Método que apresenta a lista de fantasmas dos jogadores.
         /// </summary>
         /// <param name="currentPlayer">  Variável do jogador no momento.
         /// </param>
@@ -130,7 +130,7 @@ namespace programaSolução_InácioDiogoRafael
         }
 
         /// <summary>
-        /// Método para desenhar a caverna dos fantasmas.
+        /// Método para apresentar a lista da caverna dos fantasmas.
         /// </summary>
         /// <param name="dung"> Acede a classe Dungeon. </param>
         public void DrawDungeonGhostList(Dungeon dung)

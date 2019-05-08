@@ -19,7 +19,7 @@ namespace programaSolução_InácioDiogoRafael
         // Lista do número de fantasmas que estão fora de jogo.
         public List<Ghost> ghostsOut = new List<Ghost>(0);
         
-        // Variável de instância.
+        // Variável da classe
         static int playersMade = 0;
         // Propriedade de leitura e escrita.
         public int playerNumber {get; private set;}
