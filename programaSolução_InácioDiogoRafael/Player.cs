@@ -25,7 +25,7 @@ namespace programaSolução_InácioDiogoRafael
         public int playerNumber {get; private set;}
 
         // Chama a classe Ghost.
-        Ghost selectedGhost;
+        public Ghost selectedGhost;
 
         /// <summary>
         /// Método construtor, que dá três fantasmas de cada cor a cada 
