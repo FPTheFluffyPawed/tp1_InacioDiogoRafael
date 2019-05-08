@@ -5,7 +5,7 @@ using System.Text;
 namespace programaSolução_InácioDiogoRafael
 {
     /// <summary>
-    /// Os tipos de casas (Os Espelhos, portais e casas coloridas).
+    /// Enumerador para os tipos de casa. Telha, espelho e portal.
     /// </summary>
     public enum EnumTileType
     {

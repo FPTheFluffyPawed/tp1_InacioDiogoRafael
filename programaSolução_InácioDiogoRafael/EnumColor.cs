@@ -5,7 +5,7 @@ using System.Text;
 namespace programaSolução_InácioDiogoRafael
 {   
     /// <summary>
-    /// Listagem das cores
+    /// Enumerador com as cores. Vermelho, azul e amarelo.
     /// </summary>
     public enum EnumColor
     {

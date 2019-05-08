@@ -11,6 +11,12 @@ namespace programaSolução_InácioDiogoRafael
     /// </summary>
     static class InputValidate
     {
+        /// <summary>
+        /// Verificar se a posição selecionada é válida no mapa.
+        /// </summary>
+        /// <param name="currentInput">Comando introduzido.</param>
+        /// <param name="tileArray">Posição a ser verificada.</param>
+        /// <returns>Returna a verificação como válida ou não.</returns>
         static bool CheckSelectTile(string currentInput, Tile[,] tileArray)
         {
             string[] coords;
@@ -24,7 +30,7 @@ namespace programaSolução_InácioDiogoRafael
             }
             else 
             {
-                if (tileArray[Int32.Parse(coords[0]),Int32.Parse(coords[1])] 
+                if (tileArray[Int32.Parse(coords[0]),Int32.Parse(coords[1])]
                 != null)
                 {
                     return true;
@@ -33,12 +39,17 @@ namespace programaSolução_InácioDiogoRafael
             }
         }
 
+        /// <summary>
+        /// Verificação se o fantasma selecionado é valido.
+        /// </summary>
+        /// <param name="currentInput">Comando introduzido.</param>
+        /// <param name="ghostArray">Fantasma a ser verificado.</param>
+        /// <returns></returns>
         static bool CheckSelectGhost(string currentInput, Ghost[] ghostArray)
         {
             if (Int32.TryParse(currentInput, out int g) && 
                 ghostArray[Int32.Parse(currentInput)] != null) return true;
             else return false;
-            
         }
     }
 }
