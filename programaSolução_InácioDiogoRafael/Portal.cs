@@ -26,6 +26,8 @@ namespace programaSolução_InácioDiogoRafael
             posToCheck = new Position(pos.x, pos.y)
         }
 
+        public EnumColor GetColor() => _color;
+
         public void ChangeDirection()
         {
             switch (Direction)
