@@ -15,6 +15,12 @@ namespace programaSolução_InácioDiogoRafael
         private char _ghostPlayer2Visual = '&';
         private char[] _portalVisuals = {'←','→','↑','↓'};
 
+
+        public Renderer()
+        {
+            Console.SetWindowSize(140, 30);
+
+        }
         public void DrawNumbers()
         {
             Console.WriteLine(" 01234");
@@ -66,21 +72,57 @@ namespace programaSolução_InácioDiogoRafael
 
             char c = ' ';
             Ghost g;
-            Console.SetCursorPosition(15,0);
-            Console.WriteLine("Your Ghosts, type the number on the left to select them.\n\n");
+            Console.SetCursorPosition(30,0);
+            Console.Write("Your Ghosts:");
+            Console.SetCursorPosition(15,1);
+            Console.Write("Type the number on the left to select them.");
+            Console.SetCursorPosition(15,2);
+            Console.Write("Then type in grid coordinates to place them.\n");
             
             if (currentPlayer.playerNumber == 1) c = _ghostPlayer1Visual;
             else if (currentPlayer.playerNumber == 2) c = _ghostPlayer2Visual;
 
             for (int i = 0; i < currentPlayer.playerGhosts.Count; i++)
             {
-                Console.CursorLeft = 15;
+                Console.CursorLeft = 30;
                 g = currentPlayer.playerGhosts[i];
                 TextColorSwitcher(g.color);
                 Console.Write($"[{i}] - {c}, at ({g.pos.x},{g.pos.y})\n");
 
             }
 
+        }
+
+        public void DrawDungeonGhostList(Dungeon dung)
+        {
+            char c = ' ';
+            Ghost g;
+            
+            Console.SetCursorPosition(90,0);
+            Console.Write("Your Ghosts:");
+            Console.SetCursorPosition(70,1);
+            Console.Write("Type 'd' + the number on the left to select them.");
+            Console.SetCursorPosition(70,2);
+            Console.Write("Selecting a ghost in the Dungeon will give" + 
+             "the other player.\n");
+
+            
+            
+            for (int i = 0; i < dung.GetPrisionerList().Count; i++)
+            {
+                g = dung.GetPrisionerList()[i];
+                if (g.owner.playerNumber == 1) c = _ghostPlayer1Visual;
+                else if (g.owner.playerNumber == 2) c = _ghostPlayer2Visual;
+                TextColorSwitcher(g.color);
+
+                Console.CursorLeft = 90;
+                Console.Write($"[{i}] - {c}.");
+
+            }
+
+            Console.CursorLeft = 70;
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("------------------------------------");
         }
 
         private void TextColorSwitcher(EnumColor c)
