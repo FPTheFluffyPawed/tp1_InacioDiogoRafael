@@ -36,8 +36,6 @@ namespace programaSolução_InácioDiogoRafael
             _renderer = new Renderer();
             players[0] = new Player();
             players[1] = new Player();
-            
-
         }
 
         /// <summary>
