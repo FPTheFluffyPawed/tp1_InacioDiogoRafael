@@ -31,6 +31,27 @@ namespace programaSolução_InácioDiogoRafael
 
         }
 
+        public void GameLoop()
+        {
+            for(int i = 0; i < 888; i++)
+            {
+                
+            currentPlayer = players[i % 2];
+
+            //Render the map
+            _renderer.DrawNumbers();
+            _renderer.DrawTiles(_board.Tiles);
+            _renderer.DrawPortals(_board.Portals);
+            _renderer.DrawPlayerGhostList(currentPlayer);
+            _renderer.DrawDungeonGhostList(_dungeon);
+
+            //ask and deal with input
+            //Turn ends
+            //Check if player won
+            if(WinCondition()) break;
+            
+            }
+        }
         public bool WinCondition()
         {
             bool outRed = false;
@@ -65,9 +86,7 @@ namespace programaSolução_InácioDiogoRafael
 
         public void playerTurn()
         {
-            for(int i = 0; i < 888; i++)
-            {
-                currentPlayer = players[i % 2];
+
             }
         }
     }
