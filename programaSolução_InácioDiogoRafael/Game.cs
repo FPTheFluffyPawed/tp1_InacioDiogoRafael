@@ -85,7 +85,7 @@ namespace programaSolução_InácioDiogoRafael
             {
                 if (currentPlayer.ghostsOut.Count >= 3)
                 {
-                     Console.WriteLine("Winner Winner Chicken Dinner!");
+                    Console.WriteLine("Winner Winner Chicken Dinner!");
                     Console.ReadKey();
                     return true;
                 }
