@@ -13,6 +13,8 @@ namespace programaSolução_InácioDiogoRafael
         private EnumColor TileColor;
         private EnumTileType TileType;
 
+        public Ghost ghostOnTile { get; set; }
+
         // Construtor para criar uma casa com cor.
         public Tile(EnumColor tileColor, EnumTileType tileType)
         {
@@ -25,7 +27,7 @@ namespace programaSolução_InácioDiogoRafael
             TileType = tileType;
         }
 
-        public Ghost GetGhostOnTile { get; set; }
+        
 
         // Buscar e returnar a cor de um objeto.
         public EnumColor GetColor() => TileColor;

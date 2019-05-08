@@ -16,8 +16,10 @@ namespace programaSolução_InácioDiogoRafael
         public List<Ghost> playerGhosts = new List<Ghost>(9);
         // Lista do número de fantasmas que estão na dungeon começando com 0
         public List<Ghost> dungeonGhosts = new List<Ghost>(0);
+        
         // Lista do número de fantasmas que estão fora de jogo
         public List<Ghost> ghostsOut = new List<Ghost>(0);
+        
 
         static int playersMade = 0;
         public int playerNumber {get; private set;}

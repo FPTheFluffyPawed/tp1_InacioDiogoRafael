@@ -14,12 +14,16 @@ namespace programaSolução_InácioDiogoRafael
         List<Ghost> freeGhosts;
 
         public Position pos {get; private set;}
+
+        Position posToCheck;;
+
         public Portal(EnumColor color, EnumPortalDirection startDirection, int X0, int Y0)
         {
             _color = color;
             Direction = startDirection;
             pos = new Position(X0,Y0);
             freeGhosts = new List<Ghost>(0);
+            posToCheck = new Position(pos.x, pos.y)
         }
 
         public void ChangeDirection()
@@ -43,11 +47,12 @@ namespace programaSolução_InácioDiogoRafael
             }
         }
         
-        public void FreeGhosts()
+        public void FreeGhosts(Board board)
         {
-            Position posToCheck = new Position(pos.x, pos.y);
+            Tile checkedTile;
+            Ghost ghostToSave;
 
-            switch (Direction)
+             switch (Direction)
             {
                 case EnumPortalDirection.Left:
                     posToCheck.y = pos.x - 1;
@@ -63,25 +68,20 @@ namespace programaSolução_InácioDiogoRafael
                     break;
                 default:
                     break;
-        }
-
-        public void FreeGhosts(Board board)
-        {
-            Tile checkedTile;
+            }
+  
             checkedTile = board.Tiles[posToCheck.x, posToCheck.y];
-            Ghost ghostToSave;
-            ghostToSave = checkedTile.GetGhostOnTile;
+            ghostToSave = checkedTile.ghostOnTile;
 
             if (ghostToSave != null)
+            {
+                if (_color == ghostToSave.color)
                 {
-                    if (_color == ghostToSave.color)
-                    {
-                        freeGhosts.Add(ghostToSave);
-                        ghostToSave.owner.playerGhosts.Remove(ghostToSave);
-                        ghostToSave.owner.ghostsOut.Add(ghostToSave);
-                    }
+                    freeGhosts.Add(ghostToSave);
+                     ghostToSave.owner.playerGhosts.Remove(ghostToSave);
+                     ghostToSave.owner.ghostsOut.Add(ghostToSave);
                 }
             }
-        public EnumColor GetColor() => _color;
+        }
     }
 }
