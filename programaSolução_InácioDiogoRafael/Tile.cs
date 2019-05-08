@@ -13,21 +13,28 @@ namespace programaSolução_InácioDiogoRafael
         private EnumColor TileColor;
         private EnumTileType TileType;
 
+        // Propriedade do tipo Ghost.
         public Ghost ghostOnTile { get; set; }
 
-        // Construtor para criar uma casa com cor.
+        /// <summary>
+        /// Construtor para criar uma casa com cor.
+        /// </summary>
+        /// <param name="tileColor"> Cor da casa. </param>
+        /// <param name="tileType"> Tipo da casa. </param>
         public Tile(EnumColor tileColor, EnumTileType tileType)
         {
             TileColor = tileColor;
             TileType = tileType;
         }
 
+        /// <summary>
+        /// Construtor para criar o tipo de casa ( Mirror, Portal ou Tile ).
+        /// </summary>
+        /// <param name="tileType"> Tipo de casa. </param>
         public Tile(EnumTileType tileType)
         {
             TileType = tileType;
         }
-
-        
 
         // Buscar e returnar a cor de um objeto.
         public EnumColor GetColor() => TileColor;
