@@ -17,7 +17,7 @@ namespace programaSolução_InácioDiogoRafael
         /// <param name="currentInput">Comando introduzido.</param>
         /// <param name="tileArray">Posição a ser verificada.</param>
         /// <returns>Returna a verificação como válida ou não.</returns>
-        static bool CheckSelectTile(string currentInput, Tile[,] tileArray)
+        public static bool CheckSelectTile(string currentInput, Tile[,] tileArray)
         {
             string[] coords;
             if (!currentInput.Contains(",")) return false;
@@ -30,8 +30,8 @@ namespace programaSolução_InácioDiogoRafael
             }
             else 
             {
-                if (tileArray[Int32.Parse(coords[0]),Int32.Parse(coords[1])]
-                != null)
+                
+                if(x > 0 && x < tileArray.GetLength(0) && y > 0 && y < tileArray.GetLength(1))
                 {
                     return true;
                 }
@@ -45,11 +45,37 @@ namespace programaSolução_InácioDiogoRafael
         /// <param name="currentInput">Comando introduzido.</param>
         /// <param name="ghostArray">Fantasma a ser verificado.</param>
         /// <returns></returns>
-        static bool CheckSelectGhost(string currentInput, Ghost[] ghostArray)
+        public static bool CheckSelectGhost(string currentInput, Player p, Dungeon d)
         {
-            if (Int32.TryParse(currentInput, out int g) && 
-                ghostArray[Int32.Parse(currentInput)] != null) return true;
+            int i;
+
+            if(currentInput.Contains('d'))
+            {
+                if (Int32.TryParse(currentInput.Remove(0,1), out int g))
+                {
+                    //i = Int32.Parse(currentInput.Remove(0,1));
+                    if(g > 0 && g < d.GetPrisionerList().Count)
+                    {
+                        if (d.GetPrisionerList()[g] != null) return true;
+                        else return false;
+                    }
+                    else return false;
+                } 
+                else return false;
+            }
+            else if (Int32.TryParse(currentInput, out int h))
+            {
+                //i = Int32.Parse(currentInput);
+                if (h > 0 && h < p.playerGhosts.Count)
+                {
+                    if(p.playerGhosts[h] != null) return true;
+                    else return false;
+                }
+                else return false;
+
+            }
             else return false;
+ 
         }
     }
 }
