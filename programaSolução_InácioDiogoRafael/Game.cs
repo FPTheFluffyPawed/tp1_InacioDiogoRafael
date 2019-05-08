@@ -12,14 +12,32 @@ namespace programaSolução_InácioDiogoRafael
         Player[] players = new Player[2];
         Player currentPlayer;
 
- 
-        public bool WinCondition(bool fastMode)
+        private bool _fastMode;
+
+        private Board _board;
+        private Dungeon _dungeon;
+        private Renderer _renderer;
+
+        public Game(bool fastMode)
+        {
+            _fastMode = fastMode;
+
+            _board = new Board();
+            _dungeon = new Dungeon();
+            _renderer = new Renderer();
+            players[0] = new Player();
+            players[1] = new Player();
+            
+
+        }
+
+        public bool WinCondition()
         {
             bool outRed = false;
             bool outBlue = false;
             bool outYellow = false;
         
-            if (fastMode)
+            if (_fastMode)
             {
                 if (currentPlayer.ghostsOut.Count >= 3)
                 {
@@ -29,7 +47,7 @@ namespace programaSolução_InácioDiogoRafael
                 }
             }
 
-            else if (!fastMode)
+            else if (!_fastMode)
             {
                 //Check if list is empty before entering method
                 foreach (Ghost g in currentPlayer.ghostsOut)
