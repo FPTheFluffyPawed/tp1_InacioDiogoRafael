@@ -25,10 +25,12 @@ namespace programaSolução_InácioDiogoRafael
                 {
                     case EnumColor.Yellow:
                         d.UpdatePrisionerList(Defender);
+                        Defender.isOnBoard = false;
                         return true;
                         
                     case EnumColor.Red:
                         d.UpdatePrisionerList(Attacker);
+                        Attacker.isOnBoard = false;
                         return false;
                         
                     default:
@@ -44,9 +46,11 @@ namespace programaSolução_InácioDiogoRafael
                 {
                     case EnumColor.Blue:
                         d.UpdatePrisionerList(Defender);
+                        Defender.isOnBoard = false;
                         return true;
                     case EnumColor.Yellow:
                         d.UpdatePrisionerList(Attacker);
+                        Attacker.isOnBoard = false;
                         return false;
                     default:
                         return false;
@@ -61,9 +65,11 @@ namespace programaSolução_InácioDiogoRafael
                 {
                     case EnumColor.Red:
                         d.UpdatePrisionerList(Defender);
+                        Defender.isOnBoard = false;
                         return true;
                     case EnumColor.Blue:
                         d.UpdatePrisionerList(Attacker);
+                        Attacker.isOnBoard = false;
                         return false;
                     default:
                         return false;
