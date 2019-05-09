@@ -55,7 +55,6 @@ namespace programaSolução_InácioDiogoRafael
         /// </summary>
         public void GameLoop()
         {
-            
             for(int i = 0; i < 1666; i++)
             {
                 currentPlayer = players[i % 2];
@@ -179,12 +178,10 @@ namespace programaSolução_InácioDiogoRafael
         /// </summary>
         private void ActivatePortals()
         {
-
             foreach(Portal p in _board.Portals)
             {
                 p.FreeGhosts(_board);
             }
-
         }
     }
 }

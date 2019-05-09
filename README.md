@@ -30,7 +30,7 @@ Inácio Amerio:
 * Fez as classes `Tile.cs` e `Board.cs`.
 * Fixou inúmeros problemas ao longo de todo o código, como _bugs_, etc... 
 * Comentou o código juntamente com o Diogo.
-* Ajudou o Diogo do diagrama UML.
+* Ajudou o Diogo do diagrama UML e no ficheiro Markdown.
 
 Rafael Silva:
 
