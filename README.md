@@ -18,7 +18,7 @@ Diogo Henriques:
 * Fez a classe `Portal.cs`.
 * Criou as enumerações presentes no código.
 * Fez pequenos ajustes em diversas partes do código de forma a corrigir _bugs_,
-  corrigir identação, apagar código morto.
+  corrigir identação e apagar código morto.
 * Comentou o código juntamente com o Inácio.
 * Criou o fluxograma, diagrama UML, ficheiro Doxygen e ficheiro Markdown.
 
@@ -41,11 +41,20 @@ Rafael Silva:
 
 ## Descrição da solução
 
+### Arquitetura da solução
 * Arquitetura da solução, com breve explicação de como o programa foi organizado
 e algoritmos implementados.
-* Um diagrama UML de classes simples (i.e., sem indicação dos membros da classe) descrevendo a estrutura de classes.
-* Um fluxograma mostrando o funcionamento do programa
+
+### Diagrama UML
+![<Diagrama UML>](Uml.png)
+
+### Fluxograma 
+![<Fluxograma>](Fluxograma.png)
+
+### Conclusão
 * Conclusões e matéria aprendida
+
+### Referências
 * Referências, incluindo trocas de ideias com colegas, código aberto reutilizado
 ou no qual se basearam (e.g., do StackOverflow ou do GitHub) e bibliotecas de 
 terceiros utilizadas. Devem ser o mais detalhados possível.
