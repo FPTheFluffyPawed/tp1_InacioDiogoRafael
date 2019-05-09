@@ -16,6 +16,8 @@ namespace programaSolução_InácioDiogoRafael
         // Propriedade do tipo Ghost.
         public Ghost ghostOnTile { get; set; }
 
+        public Position pos;
+
         /// <summary>
         /// Construtor para criar uma casa com cor.
         /// </summary>
