@@ -66,56 +66,64 @@ namespace programaSolução_InácioDiogoRafael
                 _renderer.DrawPlayerGhostList(currentPlayer);
                 _renderer.DrawDungeonGhostList(_dungeon);
             
-                // NOTA:
-                // Perguntar e tratar do comando inserido.
+                //Pedir para selecionar um fantasma
+                do
+                {
                 _renderer.ShowPrompt(PromptMessages.SelectGhost, currentPlayer);
                 _input = Console.ReadLine();
-                if(InputValidate.CheckSelectGhost(_input,currentPlayer))
-                {
-                    if (_input.Contains('d')) 
-                    {
-                        _inputInt = Int32.Parse(_input.Remove(0,1));
-                        currentPlayer.dungeonGhosts[_inputInt].ChangeOwner(players[currentPlayer.playerNumber % 2]);
+                }
+                while(!InputValidate.CheckSelectGhost(_input,currentPlayer));
 
-                    }
-                    else
-                    {
-                        _inputInt = Int32.Parse(_input);
-                        currentPlayer.selectedGhost = currentPlayer.playerGhosts[_inputInt]; 
-                    }
+                //Atribuir o Ghost selecionado ao jogador certo
+                if (_input.Contains('d')) 
+                {
+                    _inputInt = Int32.Parse(_input.Remove(0,1));
+                    currentPlayer.dungeonGhosts[_inputInt].ChangeOwner(players[currentPlayer.playerNumber % 2]);
 
                 }
+                else
+                {
+                    _inputInt = Int32.Parse(_input);
+                    currentPlayer.selectedGhost = currentPlayer.playerGhosts[_inputInt]; 
+                }
+
+                // Usar o ghost selecionado se houver, e colocá-lo numa 
+                //Tile válida
                 if(currentPlayer.selectedGhost != null)
                 {
-                    _renderer.ShowPrompt(PromptMessages.SelectTile, currentPlayer);
-                    _input = Console.ReadLine();
-                    if(InputValidate.CheckSelectTile(_input, _board.Tiles))
+                    //Pedir para selecionar uma Tile
+                    do
                     {
-                        _inputArr = _input.Split(',');
-                        _inIntX = Int32.Parse(_inputArr[0]);
-                        _inIntY = Int32.Parse(_inputArr[1]);
+                     _renderer.ShowPrompt(PromptMessages.SelectTile, currentPlayer);
+                    _input = Console.ReadLine();                       
 
-                        g1 = currentPlayer.selectedGhost;
-                        foreach(Position p in g1.possiblePos)
+                    }
+                    while(!InputValidate.CheckSelectTile(_input, _board.Tiles));
+
+                    _inputArr = _input.Split(',');
+                    _inIntX = Int32.Parse(_inputArr[0]);
+                    _inIntY = Int32.Parse(_inputArr[1]);
+
+                    g1 = currentPlayer.selectedGhost;
+                    foreach(Position p in g1.possiblePos)
+                    {
+                        if(p.x == _inIntX && p.y == _inIntY)
                         {
-                            if(p.x == _inIntX && p.y == _inIntY)
-                            {
-                                if(_board.Tiles[_inIntX,_inIntY].ghostOnTile 
+                            if(_board.Tiles[_inIntX,_inIntY].ghostOnTile 
                                 != null) 
-                                {   
-                                    g2 = 
-                                    _board.Tiles[_inIntX,_inIntY].ghostOnTile;
+                            {   
+                                g2 = _board.Tiles[_inIntX,_inIntY].ghostOnTile;
 
-                                    if(g2.color != g1.color)
+                                if(g2.color != g1.color)
+                                {
+                                    if(GhostFight.Resolve(g1, g2, _dungeon))
                                     {
-                                        if(GhostFight.Resolve(g1, g2, _dungeon))
-                                            _board.PlaceGhostOnTile(g1,_inIntX, _inIntY);
+                                        _board.PlaceGhostOnTile(g1,_inIntX, _inIntY);
 
                                     }
-
                                 }
-                                else  _board.PlaceGhostOnTile(
-                                        g1,_inIntX, _inIntY);
+                                else  _board.PlaceGhostOnTile(g1,_inIntX, _inIntY);
+                                        
                             }
 
 
@@ -129,7 +137,7 @@ namespace programaSolução_InácioDiogoRafael
 
 
 
-                //Input.
+               
 
                 // Verificar se o jogador ganhou.
                 if(WinCondition()) break;
