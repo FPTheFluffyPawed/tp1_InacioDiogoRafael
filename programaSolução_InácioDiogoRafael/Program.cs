@@ -20,10 +20,8 @@ namespace programaSolução_InácioDiogoRafael
             {
                 if (args[0] == "--quick") 
                 {
-
                     gm = new Game(true);
                     gm.GameLoop();
-
                 }
             }
             else 

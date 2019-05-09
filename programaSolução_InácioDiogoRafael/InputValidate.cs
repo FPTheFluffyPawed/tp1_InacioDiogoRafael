@@ -17,7 +17,8 @@ namespace programaSolução_InácioDiogoRafael
         /// <param name="currentInput">Comando introduzido.</param>
         /// <param name="tileArray">Posição a ser verificada.</param>
         /// <returns>Returna a verificação como válida ou não.</returns>
-        public static bool CheckSelectTile(string currentInput, Tile[,] tileArray)
+        public static bool CheckSelectTile(string currentInput, 
+            Tile[,] tileArray)
         {
             string[] coords;
             if (!currentInput.Contains(",")) return false;
@@ -30,8 +31,8 @@ namespace programaSolução_InácioDiogoRafael
             }
             else 
             {
-                
-                if(x >= 0 && x < tileArray.GetLength(0) && y >= 0 && y < tileArray.GetLength(1))
+                if(x >= 0 && x < tileArray.GetLength(0) && y >= 0 && 
+                    y < tileArray.GetLength(1))
                 {
                     return true;
                 }
@@ -69,10 +70,8 @@ namespace programaSolução_InácioDiogoRafael
                     else return false;
                 }
                 else return false;
-
             }
             else return false;
- 
         }
     }
 }

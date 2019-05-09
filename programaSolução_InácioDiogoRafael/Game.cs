@@ -15,13 +15,12 @@ namespace programaSolução_InácioDiogoRafael
         // Variável para selecionar o jogador.
         Player currentPlayer;
         
-
         private bool _fastMode;
 
         private Board _board;
         private Dungeon _dungeon;
         private Renderer _renderer;
-
+        
         /// <summary>
         /// Construtor para criar o jogo, utilizando 'fastMode'
         /// para inicializar.
@@ -49,7 +48,6 @@ namespace programaSolução_InácioDiogoRafael
                     g.SetStartPossiblePos(_board.Tiles);
                 }             
             }
-
         }
 
         /// <summary>
@@ -66,7 +64,6 @@ namespace programaSolução_InácioDiogoRafael
                 DoPlayerTurn();
                 if(WinCondition()) 
                     break;
-                
             }
         }
 
@@ -102,7 +99,6 @@ namespace programaSolução_InácioDiogoRafael
                 // Verificar se a lista está vazia antes de introduzir o
                 // metódo.
 
-
                 // Para cada fantasma na lista de fantasmas fora do mapa,
                 // pertencente a um jogador, verificar se um fantasma da cor
                 // está presente, e assinalar.
@@ -112,7 +108,6 @@ namespace programaSolução_InácioDiogoRafael
                     if (g.color == EnumColor.Blue) outBlue = true;
                     if (g.color == EnumColor.Yellow) outYellow = true;
                 }
-
                 // Se as três cores estiverem presentes, returnamos verdade a
                 // condição vitória.
                 if (outRed && outBlue && outYellow) return true;
@@ -122,42 +117,34 @@ namespace programaSolução_InácioDiogoRafael
             return false;
         }
 
-        /// <summary>
-        /// Metódo que trata a vez de um jogador. INCOMPLETO.
-        /// </summary>
-
-
         // Executa as ações que constituem o turno 
         //para 1 jogador
         private void DoPlayerTurn()
         {
-
-            PlayerInteractionHandler.PlayerSelectGhost(_renderer, _dungeon, currentPlayer, players);
+            PlayerInteractionHandler.PlayerSelectGhost(_renderer, _dungeon, 
+                currentPlayer, players);
 
             if(currentPlayer.selectedGhost != null)
-                PlayerInteractionHandler.PlayerSelectTile(_renderer, _board,_dungeon, currentPlayer, players);
-
+                PlayerInteractionHandler.PlayerSelectTile(_renderer, 
+                    _board,_dungeon, currentPlayer, players);
         }
 
         // Utilisa o renderer para desenhar tudo no ecrã com os
         // estados atualizados
         private void UpdateDrawCall()
         {
-
             _renderer.DrawNumbers();
             _renderer.DrawTiles(_board.Tiles);
             _renderer.DrawPortals(_board.Portals);
             _renderer.DrawGhostsOnBoard(_board);
             _renderer.DrawPlayerGhostList(currentPlayer);
             _renderer.DrawDungeonGhostList(_dungeon);
-
         }
 
         // Primeira fase do jogo, em que os jogadores apenas
         // colocam os fantasmas no tabuleiro
         private void SetupPhase()
         {
-
             currentPlayer = players[0];
 
             UpdateDrawCall();

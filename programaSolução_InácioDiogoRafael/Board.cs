@@ -22,7 +22,6 @@ namespace programaSolução_InácioDiogoRafael
             Portals = new Portal[3];
             AssignTileInformation();
             PlacePortals();
-            
         }
 
         /// <summary>
@@ -71,10 +70,8 @@ namespace programaSolução_InácioDiogoRafael
             {
                 for (int y = 0; y < Tiles.GetLength(1); y++)
                 {
-
                     Tiles[x,y].pos.x = x;
                     Tiles[x,y].pos.y = y;
-    
                 }
             }
         }
@@ -91,7 +88,6 @@ namespace programaSolução_InácioDiogoRafael
                 new Portal(EnumColor.Yellow, EnumPortalDirection.Right, 4, 2);
             Portals[2] = 
                 new Portal(EnumColor.Blue, EnumPortalDirection.Down, 2, 4);
-
         }
 
         /// <summary>
@@ -125,8 +121,6 @@ namespace programaSolução_InácioDiogoRafael
 
             g.UpdatePosition(newX, newY, 
             Tiles[newX, newY].GetTile() == EnumTileType.Mirror);
-
         }
-
     }
 }

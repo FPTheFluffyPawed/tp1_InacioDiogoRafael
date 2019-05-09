@@ -15,7 +15,8 @@ namespace programaSolução_InácioDiogoRafael
         /// <param name="Attacker">Fantasma atacante.</param>
         /// <param name="Defender">Fantasma defensor.</param>
         /// <param name="d">Refência á masmorra a utilizar.</param>
-        public static bool Resolve(Ghost Attacker, Ghost Defender, Dungeon d, Board p)
+        public static bool Resolve(Ghost Attacker, Ghost Defender, 
+            Dungeon d, Board p)
         {
             // Se o atacante for azul, perder contra vermelho e ganhar contra 
             // amarelo.

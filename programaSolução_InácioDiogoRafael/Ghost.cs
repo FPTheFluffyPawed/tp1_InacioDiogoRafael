@@ -35,7 +35,6 @@ namespace programaSolução_InácioDiogoRafael
             inDungeon = false;
             isOnBoard = false;
             possiblePos = new List<Position>(4);
-
         }
 
         /// <summary>
@@ -78,7 +77,6 @@ namespace programaSolução_InácioDiogoRafael
                 {   
                     if(t.GetColor() == this.color)               
                     possiblePos.Add(new Position(t.pos.x,t.pos.y));
-
                 }
             }
         }
