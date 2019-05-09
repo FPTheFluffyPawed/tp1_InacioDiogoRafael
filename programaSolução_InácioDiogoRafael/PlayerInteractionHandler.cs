@@ -7,12 +7,12 @@ namespace programaSolução_InácioDiogoRafael
         private static string currentIn;
         private static string[] conInArr = new string[2];
         private static int convertedIn;
-
+    
         private static int conInX;
         private static int conInY;
 
-
-        public static void PlayerSelectGhost(Renderer r, Dungeon d, Player currentP, Player[] pList)
+        public static void PlayerSelectGhost(Renderer r, Dungeon d, 
+            Player currentP, Player[] pList)
         {
             do
             {
@@ -29,7 +29,6 @@ namespace programaSolução_InácioDiogoRafael
                 d.ReleasePrisioner(currentP.selectedGhost);
                 int nextP = pList[currentP.playerNumber % 3].playerNumber;
                 currentP.dungeonGhosts[convertedIn].ChangeOwner(pList[nextP]);
-
             }
             else
             {
@@ -49,7 +48,6 @@ namespace programaSolução_InácioDiogoRafael
             {
                 r.ShowPrompt(PromptMessages.SelectTile, currentP);
                 currentIn = Console.ReadLine();                       
-
             }
             while(!InputValidate.CheckSelectTile(currentIn, b.Tiles));
 
@@ -68,22 +66,16 @@ namespace programaSolução_InácioDiogoRafael
 
                         if(g2.color != g1.color)
                         {
-
                             if(GhostFight.Resolve(g1, g2, dungeon, b))
                             {
                                 b.PlaceGhostOnTile(g1,conInX, conInY);
-
                             }                               
-                            
                         }
-                        
                     }
                     else  
                         b.PlaceGhostOnTile(g1,conInX, conInY);
-                   
                 }
             }
-
         }        
     }
 }

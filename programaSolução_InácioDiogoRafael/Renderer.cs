@@ -198,11 +198,8 @@ namespace programaSolução_InácioDiogoRafael
                     Console.SetCursorPosition(t.pos.x + 1, t.pos.y + 1 );
                     TextColorSwitcher(t.ghostOnTile.color);
                     Console.Write(c);
-                    
                 }
-
             }
-
         }
 
         public void ShowPrompt(string msg, Player currP)
@@ -242,7 +239,5 @@ namespace programaSolução_InácioDiogoRafael
                  break;
             }        
         }
-
-
     }
 }
