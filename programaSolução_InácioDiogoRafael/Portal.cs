@@ -40,7 +40,7 @@ namespace programaSolução_InácioDiogoRafael
             Direction = startDirection;
             pos = new Position(X0,Y0);
             freeGhosts = new List<Ghost>(0);
-            posToCheck = new Position(pos.x, pos.y);
+            posToCheck = new Position(pos.x, pos.y);                           
         }
 
         /// <summary>

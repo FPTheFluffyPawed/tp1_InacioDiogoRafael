@@ -66,7 +66,7 @@ namespace programaSolução_InácioDiogoRafael
                         if(g2.color != g1.color)
                         {
 
-                            if(GhostFight.Resolve(g1, g2, dungeon))
+                            if(GhostFight.Resolve(g1, g2, dungeon, b))
                             {
                                 b.PlaceGhostOnTile(g1,conInX, conInY);
 

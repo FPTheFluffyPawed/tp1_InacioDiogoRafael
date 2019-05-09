@@ -67,8 +67,7 @@ namespace programaSolução_InácioDiogoRafael
                 DoPlayerTurn();
                 if(WinCondition()) 
                     break;
-
-
+                
             }
         }
 
