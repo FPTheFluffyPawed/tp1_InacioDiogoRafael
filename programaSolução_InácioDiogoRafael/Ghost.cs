@@ -13,6 +13,7 @@ namespace programaSolução_InácioDiogoRafael
         
         public Player owner {get; private set;}
         public EnumColor color {get; private set;}
+        public bool isOnBoard {get; set;}
 
         // Utilizar a classe das posições para meter o novo fantasma.
         public Position pos;
@@ -32,7 +33,9 @@ namespace programaSolução_InácioDiogoRafael
             color = ghostColour;
             this.owner = owner;
             inDungeon = false;
-           
+            isOnBoard = false;
+            possiblePos = new List<Position>();
+
         }
 
         /// <summary>
@@ -49,7 +52,7 @@ namespace programaSolução_InácioDiogoRafael
 
         public void UpdatePosition(int x, int y, bool onMirrorTile)
         {
-            possiblePos = new List<Position>();
+            possiblePos.Clear();
             pos.x = x;
             pos.y = y;
 
@@ -65,6 +68,25 @@ namespace programaSolução_InácioDiogoRafael
                 possiblePos.Add(new Position(1,3));
                 possiblePos.Add(new Position(3,3));
             }
+        }
+
+        public void SetStartPossiblePos(Tile[,] tiles)
+        {
+            possiblePos.Clear();
+            foreach(Tile t in tiles)
+            {
+                if (t.GetTile() == EnumTileType.Tile)
+                {   
+
+                    if(t.GetColor() == this.color)               
+                    possiblePos.Add(new Position(t.pos.x,t.pos.y));
+
+                }
+
+                
+
+            }
+
         }
     }
 }
