@@ -50,6 +50,11 @@ namespace programaSolução_InácioDiogoRafael
 
         public void UpdatePosition(int x, int y, bool onMirrorTile)
         {
+            if(!isOnBoard)
+            {
+
+            }
+
             possiblePos.Clear();
             pos.x = x;
             pos.y = y;
@@ -75,7 +80,7 @@ namespace programaSolução_InácioDiogoRafael
             {
                 if (t.GetTile() == EnumTileType.Tile)
                 {   
-                    if(t.GetColor() == this.color)               
+                    if(t.GetColor() == this.color && t.ghostOnTile == null)               
                     possiblePos.Add(new Position(t.pos.x,t.pos.y));
                 }
             }
