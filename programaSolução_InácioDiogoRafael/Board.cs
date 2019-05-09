@@ -65,6 +65,17 @@ namespace programaSolução_InácioDiogoRafael
             Tiles[2, 4] = new Tile(EnumTileType.Portal);        // Blue Portal
             Tiles[3, 4] = new Tile(EnumColor.Blue, EnumTileType.Tile);
             Tiles[4, 4] = new Tile(EnumColor.Yellow, EnumTileType.Tile);
+
+            for(int x = 0; x < Tiles.GetLength(0); x++)
+            {
+                for (int y = 0; y < Tiles.GetLength(1); y++)
+                {
+                    
+                    Tiles[x,y].pos.x = x;
+                    Tiles[x,y].pos.y = y;
+
+                }
+            }
         }
 
         /// <summary>
