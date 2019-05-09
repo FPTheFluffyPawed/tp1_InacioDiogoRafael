@@ -27,6 +27,7 @@ namespace programaSolução_InácioDiogoRafael
         {
             TileColor = tileColor;
             TileType = tileType;
+            ghostOnTile = null;
         }
 
         /// <summary>
@@ -36,6 +37,7 @@ namespace programaSolução_InácioDiogoRafael
         public Tile(EnumTileType tileType)
         {
             TileType = tileType;
+            ghostOnTile = null;
         }
 
         // Buscar e returnar a cor de um objeto.
