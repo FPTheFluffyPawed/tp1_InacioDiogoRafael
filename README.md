@@ -73,7 +73,7 @@ Pode ser considerado a _Front End_ do programa.
 ![<Fluxograma>](images/Fluxograma.png)
 
 ### Conclusões
-* Conclusões que não sei programar
+* Em conclusão com este projeto, ao utilizar uma combinação de enumerações e classes, combinação de código em equipa e tratamento de ideas em conjunto, podemos concordar que projetos grandes demoram a ser feitos, sendo preciso estruturação bem feita com comunicação clara entre os programadores na equipa.
 
 ### Referências
 
