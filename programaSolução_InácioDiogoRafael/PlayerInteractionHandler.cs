@@ -11,7 +11,7 @@ namespace programaSolução_InácioDiogoRafael
         private static int conInX;
         private static int conInY;
 
-        public static void PlayerSelectGhost(Renderer r, Dungeon d, Player 
+        public static void PlayerSelectGhost(Renderer r, Board b, Dungeon d, Player 
             currentP, Player[] pList)
         {
             do
@@ -25,6 +25,7 @@ namespace programaSolução_InácioDiogoRafael
             {
                 convertedIn = Int32.Parse(currentIn.Remove(0,1));
                 currentP.selectedGhost = currentP.dungeonGhosts[convertedIn];
+                currentP.selectedGhost.SetStartPossiblePos(b.Tiles);
                 if (currentP.playerNumber == 2)
                 {
                     currentP.dungeonGhosts[convertedIn].ChangeOwner(pList[0]);

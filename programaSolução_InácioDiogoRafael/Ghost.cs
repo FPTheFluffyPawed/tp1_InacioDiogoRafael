@@ -50,10 +50,6 @@ namespace programaSolução_InácioDiogoRafael
 
         public void UpdatePosition(int x, int y, bool onMirrorTile)
         {
-            if(!isOnBoard)
-            {
-
-            }
 
             possiblePos.Clear();
             pos.x = x;
