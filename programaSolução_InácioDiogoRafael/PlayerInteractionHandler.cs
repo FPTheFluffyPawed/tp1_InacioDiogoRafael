@@ -2,6 +2,9 @@ using System;
 
 namespace programaSolução_InácioDiogoRafael
 {
+    /// <summary>
+    /// Classe que trata os inputs do jogador.
+    /// </summary>
     static class PlayerInteractionHandler
     {
         private static string currentIn;
@@ -11,8 +14,16 @@ namespace programaSolução_InácioDiogoRafael
         private static int conInX;
         private static int conInY;
 
-        public static void PlayerSelectGhost(Renderer r, Board b, Dungeon d, Player 
-            currentP, Player[] pList)
+        /// <summary>
+        /// Metódo a ser chamado ao o jogador escolher um fantasma.
+        /// </summary>
+        /// <param name="r">Renderer.</param>
+        /// <param name="b">Board.</param>
+        /// <param name="d">Dungeon.</param>
+        /// <param name="currentP">Jogador atual.</param>
+        /// <param name="pList">Lista de jogadores.</param>
+        public static void PlayerSelectGhost(Renderer r, Board b, Dungeon d,
+            Player currentP, Player[] pList)
         {
             do
             {
@@ -20,12 +31,15 @@ namespace programaSolução_InácioDiogoRafael
             currentIn = Console.ReadLine();
             }
             while(!InputValidate.CheckSelectGhost(currentIn,currentP));
-            //Atribuir o Ghost selecionado ao jogador certo
+            // Agarrar os fantasmas da masmorra.
             if (currentIn.Contains('d')) 
             {
-                convertedIn = Int32.Parse(currentIn.Remove(0,1));
+                // Retirar a número do string.
+                convertedIn = Int32.Parse(currentIn.Remove(0, 1));
                 currentP.selectedGhost = currentP.dungeonGhosts[convertedIn];
                 currentP.selectedGhost.SetStartPossiblePos(b.Tiles);
+
+                // Dar fantasma ao jogador oponente.
                 if (currentP.playerNumber == 2)
                 {
                     currentP.dungeonGhosts[convertedIn].ChangeOwner(pList[0]);
@@ -44,7 +58,14 @@ namespace programaSolução_InácioDiogoRafael
             }
         }
 
-        // Quando o jogador tiver de selecionar uma tile
+        /// <summary>
+        /// Metódo a ser chamado para escolher uma casa.
+        /// </summary>
+        /// <param name="r">Renderer.</param>
+        /// <param name="b">Board.</param>
+        /// <param name="dungeon">Dungeon.</param>
+        /// <param name="currentP">Jogador atual.</param>
+        /// <param name="pList">Lista de jogadores.</param>
         public static void PlayerSelectTile(Renderer r, Board b, 
         Dungeon dungeon, Player currentP, Player[] pList)
         {
