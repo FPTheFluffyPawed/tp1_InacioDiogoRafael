@@ -61,7 +61,7 @@ namespace programaSolução_InácioDiogoRafael
 
                     else if(tiles[x,y].GetTile() == EnumTileType.Tile)
                     {   
-                        if(tiles[x,y].ghostOnTile != null)
+                        if(tiles[x,y].ghostOnTile == null)
                         {
                             TextColorSwitcher(tiles[x,y].GetColor());
                             Console.Write(_tileVisual);
@@ -126,10 +126,13 @@ namespace programaSolução_InácioDiogoRafael
             // Conta quantos fantasmas o jogador tem.
             for (int i = 0; i < currentPlayer.playerGhosts.Count; i++)
             {
-                Console.CursorLeft = 30;
+                Console.CursorLeft = 25;
                 g = currentPlayer.playerGhosts[i];
                 TextColorSwitcher(g.color);
-                Console.Write($"[{i}] - {c}, at ({g.pos.x},{g.pos.y})\n");
+                if(g.isOnBoard)
+                    Console.Write($"[{i}] - {c}, at ({g.pos.x},{g.pos.y})\n");
+                else if(!g.isOnBoard)
+                    Console.Write($"[{i}] - {c} -NOT PLACED YET-\n");
             }
         }
 
@@ -148,7 +151,7 @@ namespace programaSolução_InácioDiogoRafael
             
             // Na posição (90, 0) é escrito "Your Ghosts:".
             Console.SetCursorPosition(90,0);
-            Console.Write("Your Ghosts:");
+            Console.Write("Your Ghosts in the Dungeon:");
 
             // Na posição (70, 1) é escrito "Type 'd' + the number on the 
             // left to select them.".
@@ -159,7 +162,7 @@ namespace programaSolução_InácioDiogoRafael
             // Dungeon will give the other player.\n" .
             Console.SetCursorPosition(70,2);
             Console.Write("Selecting a ghost in the Dungeon will give" + 
-             "the other player.\n");
+             "it to the other player.\n");
 
             // Apresenta os fantasmas de cada jogador na caverna.
             for (int i = 0; i < dung.GetPrisionerList().Count; i++)
@@ -203,7 +206,10 @@ namespace programaSolução_InácioDiogoRafael
 
         public void ShowPrompt(string msg, Player currP)
         {
-            Console.SetCursorPosition(0,10);
+            Console.SetCursorPosition(0,25);
+            Console.WriteLine("     ");
+            Console.WriteLine("     ");
+            Console.SetCursorPosition(0,25);
             Console.Write($"Jogador{currP.playerNumber}: " + msg +"\n");
         }
         //public void ShowPrompt(string msg, )
