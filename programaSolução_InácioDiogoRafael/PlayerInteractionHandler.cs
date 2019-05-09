@@ -12,7 +12,8 @@ namespace programaSolução_InácioDiogoRafael
         private static int conInY;
 
 
-        public static void PlayerSelectGhost(Renderer r, Dungeon d, Player currentP, Player[] pList)
+        public static void PlayerSelectGhost(Renderer r, Dungeon d, Player 
+            currentP, Player[] pList)
         {
             do
             {
@@ -20,15 +21,22 @@ namespace programaSolução_InácioDiogoRafael
             currentIn = Console.ReadLine();
             }
             while(!InputValidate.CheckSelectGhost(currentIn,currentP));
-
             //Atribuir o Ghost selecionado ao jogador certo
             if (currentIn.Contains('d')) 
             {
                 convertedIn = Int32.Parse(currentIn.Remove(0,1));
                 currentP.selectedGhost = currentP.dungeonGhosts[convertedIn];
-                d.ReleasePrisioner(currentP.selectedGhost);
-                int nextP = pList[currentP.playerNumber % 3].playerNumber;
-                currentP.dungeonGhosts[convertedIn].ChangeOwner(pList[nextP]);
+                if (currentP.playerNumber == 2)
+                {
+                    currentP.dungeonGhosts[convertedIn].ChangeOwner(pList[0]);
+                    d.ReleasePrisioner(currentP.selectedGhost);
+                }
+                else
+                {
+                    currentP.dungeonGhosts[convertedIn].ChangeOwner(pList[1]);
+                    d.ReleasePrisioner(currentP.selectedGhost);
+                }
+
 
             }
             else
@@ -44,7 +52,6 @@ namespace programaSolução_InácioDiogoRafael
         {
             Ghost g1;
             Ghost g2;
-            
             do
             {
                 r.ShowPrompt(PromptMessages.SelectTile, currentP);
@@ -83,7 +90,6 @@ namespace programaSolução_InácioDiogoRafael
                    
                 }
             }
-
         }        
     }
 }

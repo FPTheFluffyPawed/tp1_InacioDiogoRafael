@@ -47,7 +47,6 @@ namespace programaSolução_InácioDiogoRafael
             owner.playerGhosts.Remove(this);
             owner = newOwner;
             owner.playerGhosts.Add(this);
-
         }
 
         public void UpdatePosition(int x, int y, bool onMirrorTile)
@@ -81,11 +80,7 @@ namespace programaSolução_InácioDiogoRafael
                     possiblePos.Add(new Position(t.pos.x,t.pos.y));
 
                 }
-
-                
-
             }
-
         }
     }
 }

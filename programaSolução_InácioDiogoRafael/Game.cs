@@ -62,7 +62,6 @@ namespace programaSolução_InácioDiogoRafael
             {
                 currentPlayer = players[i % 2];
                 currentPlayer.selectedGhost = null;
-                
                 UpdateDrawCall();
                 DoPlayerTurn();
                 if(WinCondition()) 
