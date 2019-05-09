@@ -38,6 +38,17 @@ namespace programaSolução_InácioDiogoRafael
             Console.Write("0\n1\n2\n3\n4");
         }
 
+        public void DrawLegend()
+        {
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+            Console.WriteLine("\n\nLEGENDA\n\n" +
+                "@\nFantasma do Jogador 1.\n\n" +
+                "&\nFantasma do Jogador 2.\n\n" +
+                "M\nEspelho.\n\n" +
+                "+\nCasa.\n\n" +
+                "←, →, ↑, ↓.\nPortais e a direção.");
+        }
+
         /// <summary>
         /// Método para desenhar as casas.
         /// </summary>

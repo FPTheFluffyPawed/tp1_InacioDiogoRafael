@@ -112,7 +112,11 @@ namespace programaSolução_InácioDiogoRafael
                 }
                 // Se as três cores estiverem presentes, returnamos verdade a
                 // condição vitória.
-                if (outRed && outBlue && outYellow) return true;
+                if (outRed && outBlue && outYellow)
+                {
+                    Console.WriteLine("Winner Winner Chicken Dinner!");
+                    return true;
+                }
             }
 
             // Se não, fica falso.
@@ -136,6 +140,7 @@ namespace programaSolução_InácioDiogoRafael
         private void UpdateDrawCall()
         {
             _renderer.DrawNumbers();
+            _renderer.DrawLegend();
             _renderer.DrawTiles(_board.Tiles);
             _renderer.DrawPortals(_board.Portals);
             _renderer.DrawGhostsOnBoard(_board);
