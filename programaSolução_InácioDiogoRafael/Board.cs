@@ -22,13 +22,14 @@ namespace programaSolução_InácioDiogoRafael
             Portals = new Portal[3];
             AssignTileInformation();
             PlacePortals();
+            
         }
 
         /// <summary>
         /// Metódo para meter a informação correta nas casas corretas
         /// para criar o mapa predefinido do jogo.
         /// </summary>
-        public void AssignTileInformation()
+        private void AssignTileInformation()
         {
             // Com o array bidimensional, assinalamos as posições.
             // 1ª linha.
@@ -65,13 +66,24 @@ namespace programaSolução_InácioDiogoRafael
             Tiles[2, 4] = new Tile(EnumTileType.Portal);        // Blue Portal
             Tiles[3, 4] = new Tile(EnumColor.Blue, EnumTileType.Tile);
             Tiles[4, 4] = new Tile(EnumColor.Yellow, EnumTileType.Tile);
+
+            for(int x = 0; x < Tiles.GetLength(0); x++)
+            {
+                for (int y = 0; y < Tiles.GetLength(1); y++)
+                {
+
+                    Tiles[x,y].pos.x = x;
+                    Tiles[x,y].pos.y = y;
+    
+                }
+            }
         }
 
         /// <summary>
         /// Metódo para assinalar os portais nas posições corretas com as
         /// suas cores.
         /// </summary>
-        void PlacePortals()
+        private void PlacePortals()
         {
             Portals[0] =
                 new Portal(EnumColor.Red, EnumPortalDirection.Up, 2, 0);
@@ -79,7 +91,6 @@ namespace programaSolução_InácioDiogoRafael
                 new Portal(EnumColor.Yellow, EnumPortalDirection.Right, 4, 2);
             Portals[2] = 
                 new Portal(EnumColor.Blue, EnumPortalDirection.Down, 2, 4);
-
 
         }
 
@@ -109,6 +120,9 @@ namespace programaSolução_InácioDiogoRafael
         {
             Tiles[g.pos.x, g.pos.y].ghostOnTile = null;
             Tiles[newX, newY].ghostOnTile = g;
+
+            g.isOnBoard = true;
+
             g.UpdatePosition(newX, newY, 
             Tiles[newX, newY].GetTile() == EnumTileType.Mirror);
 

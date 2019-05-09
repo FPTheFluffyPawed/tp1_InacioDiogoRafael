@@ -22,16 +22,6 @@ namespace programaSolução_InácioDiogoRafael
         private Dungeon _dungeon;
         private Renderer _renderer;
 
-        private string _input;
-        private int _inputInt;
-        private int _inIntX;
-        private int _inIntY;
-        private string[] _inputArr;
-
-        private Ghost g1;
-        private Ghost g2;
-
-
         /// <summary>
         /// Construtor para criar o jogo, utilizando 'fastMode'
         /// para inicializar.
@@ -46,6 +36,20 @@ namespace programaSolução_InácioDiogoRafael
             _renderer = new Renderer();
             players[0] = new Player();
             players[1] = new Player();
+
+            foreach(Ghost g in players[0].playerGhosts)
+                g.SetStartPossiblePos(_board.Tiles);
+            foreach(Ghost g in players[1].playerGhosts)
+                g.SetStartPossiblePos(_board.Tiles);
+
+            for(int i = 0; i < players.Length; i++)
+            {
+                foreach(Ghost g in players[i].playerGhosts)
+                {
+                    g.SetStartPossiblePos(_board.Tiles);
+                }             
+            }
+
         }
 
         /// <summary>
@@ -53,91 +57,19 @@ namespace programaSolução_InácioDiogoRafael
         /// </summary>
         public void GameLoop()
         {
-            for(int i = 0; i < 888; i++)
+
+            for(int i = 0; i < 1666; i++)
             {
                 currentPlayer = players[i % 2];
                 currentPlayer.selectedGhost = null;
-                // Desenha o mapa do jogo.
-                Console.WriteLine(_fastMode);
-                Console.ReadLine();
-                _renderer.DrawNumbers();
-                _renderer.DrawTiles(_board.Tiles);
-                _renderer.DrawPortals(_board.Portals);
-                _renderer.DrawPlayerGhostList(currentPlayer);
-                _renderer.DrawDungeonGhostList(_dungeon);
-            
-                // NOTA:
-                // Perguntar e tratar do comando inserido.
-                _renderer.ShowPrompt(PromptMessages.SelectGhost, currentPlayer);
-                _input = Console.ReadLine();
-                if(InputValidate.CheckSelectGhost(_input,currentPlayer))
-                {
-                    if (_input.Contains('d')) 
-                    {
-                        _inputInt = Int32.Parse(_input.Remove(0,1));
-                        currentPlayer.dungeonGhosts[_inputInt].ChangeOwner(players[currentPlayer.playerNumber % 2]);
-
-                    }
-                    else
-                    {
-                        _inputInt = Int32.Parse(_input);
-                        currentPlayer.selectedGhost = currentPlayer.playerGhosts[_inputInt]; 
-                    }
-
-                }
-                if(currentPlayer.selectedGhost != null)
-                {
-                    _renderer.ShowPrompt(PromptMessages.SelectTile, currentPlayer);
-                    _input = Console.ReadLine();
-                    if(InputValidate.CheckSelectTile(_input, _board.Tiles))
-                    {
-                        _inputArr = _input.Split(',');
-                        _inIntX = Int32.Parse(_inputArr[0]);
-                        _inIntY = Int32.Parse(_inputArr[1]);
-
-                        g1 = currentPlayer.selectedGhost;
-                        foreach(Position p in g1.possiblePos)
-                        {
-                            if(p.x == _inIntX && p.y == _inIntY)
-                            {
-                                if(_board.Tiles[_inIntX,_inIntY].ghostOnTile 
-                                != null) 
-                                {   
-                                    g2 = 
-                                    _board.Tiles[_inIntX,_inIntY].ghostOnTile;
-
-                                    if(g2.color != g1.color)
-                                    {
-                                        if(GhostFight.Resolve(g1, g2, _dungeon))
-                                            _board.PlaceGhostOnTile(g1,_inIntX, _inIntY);
-
-                                    }
-
-                                }
-                                else  _board.PlaceGhostOnTile(
-                                        g1,_inIntX, _inIntY);
-                            }
-
-
-                        }
-                        
-                    }
-
-
-                }
                 
+                UpdateDrawCall();
+                DoPlayerTurn();
+                if(WinCondition()) 
+                    break;
 
 
-
-                //Input.
-
-                // Verificar se o jogador ganhou.
-                if(WinCondition()) break;
-
-                // NOTA:
-                // Termina a vez de o jogador.
-
-                }
+            }
         }
 
         /// <summary>
@@ -195,9 +127,56 @@ namespace programaSolução_InácioDiogoRafael
         /// <summary>
         /// Metódo que trata a vez de um jogador. INCOMPLETO.
         /// </summary>
-        public void playerTurn()
+
+
+        // Executa as ações que constituem o turno 
+        //para 1 jogador
+        private void DoPlayerTurn()
         {
 
+            PlayerInteractionHandler.PlayerSelectGhost(_renderer, currentPlayer, players);
+
+            if(currentPlayer.selectedGhost != null)
+                PlayerInteractionHandler.PlayerSelectTile(_renderer, _board,_dungeon, currentPlayer, players);
+
+        }
+
+        // Utilisa o renderer para desenhar tudo no ecrã com os
+        // estados atualizados
+        private void UpdateDrawCall()
+        {
+
+            _renderer.DrawNumbers();
+            _renderer.DrawTiles(_board.Tiles);
+            _renderer.DrawPortals(_board.Portals);
+            _renderer.DrawGhostsOnBoard(_board);
+            _renderer.DrawPlayerGhostList(currentPlayer);
+            _renderer.DrawDungeonGhostList(_dungeon);
+
+        }
+
+        // Primeira fase do jogo, em que os jogadores apenas
+        // colocam os fantasmas no tabuleiro
+        private void SetupPhase()
+        {
+
+            currentPlayer = players[0];
+
+            UpdateDrawCall();
+            DoPlayerTurn();
+
+            currentPlayer = players[1];
+            UpdateDrawCall();
+            DoPlayerTurn();
+            UpdateDrawCall();
+            DoPlayerTurn();
+
+            for(int i = 0; i < 15; i++)
+            {
+                currentPlayer = players[i % 2];
+                UpdateDrawCall();
+                DoPlayerTurn();
+            }    
         }
     }
 }

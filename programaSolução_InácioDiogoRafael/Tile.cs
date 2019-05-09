@@ -16,6 +16,8 @@ namespace programaSolução_InácioDiogoRafael
         // Propriedade do tipo Ghost.
         public Ghost ghostOnTile { get; set; }
 
+        public Position pos;
+
         /// <summary>
         /// Construtor para criar uma casa com cor.
         /// </summary>
@@ -25,6 +27,8 @@ namespace programaSolução_InácioDiogoRafael
         {
             TileColor = tileColor;
             TileType = tileType;
+            ghostOnTile = null;
+            pos = new Position();
         }
 
         /// <summary>
@@ -34,6 +38,8 @@ namespace programaSolução_InácioDiogoRafael
         public Tile(EnumTileType tileType)
         {
             TileType = tileType;
+            ghostOnTile = null;
+            pos = new Position();
         }
 
         // Buscar e returnar a cor de um objeto.
