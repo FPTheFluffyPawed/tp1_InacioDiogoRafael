@@ -34,35 +34,35 @@ namespace programaSolução_InácioDiogoRafael
             // 1ª linha.
             Tiles[0, 0] = new Tile(EnumColor.Blue, EnumTileType.Tile);
             Tiles[1, 0] = new Tile(EnumColor.Red, EnumTileType.Tile);
-            Tiles[2, 0] = new Tile(EnumTileType.Portal);        //Red Portal
+            Tiles[2, 0] = new Tile(EnumTileType.Portal);        
             Tiles[3, 0] = new Tile(EnumColor.Blue, EnumTileType.Tile);
             Tiles[4, 0] = new Tile(EnumColor.Red, EnumTileType.Tile);
 
-            //2ª linha.
+            // 2ª linha.
             Tiles[0, 1] = new Tile(EnumColor.Yellow, EnumTileType.Tile);
             Tiles[1, 1] = new Tile(EnumTileType.Mirror);
             Tiles[2, 1] = new Tile(EnumColor.Yellow, EnumTileType.Tile);
             Tiles[3, 1] = new Tile(EnumTileType.Mirror);
             Tiles[4, 1] = new Tile(EnumColor.Yellow, EnumTileType.Tile);
 
-            //3ª linha.
+            // 3ª linha.
             Tiles[0, 2] = new Tile(EnumColor.Red, EnumTileType.Tile);
             Tiles[1, 2] = new Tile(EnumColor.Blue, EnumTileType.Tile);
             Tiles[2, 2] = new Tile(EnumColor.Red, EnumTileType.Tile); 
             Tiles[3, 2] = new Tile(EnumColor.Blue, EnumTileType.Tile);
-            Tiles[4, 2] = new Tile(EnumTileType.Portal);        //Yellow Portal
+            Tiles[4, 2] = new Tile(EnumTileType.Portal);       
 
-            //4ª linha.
+            // 4ª linha.
             Tiles[0, 3] = new Tile(EnumColor.Blue, EnumTileType.Tile);
             Tiles[1, 3] = new Tile(EnumTileType.Mirror);
             Tiles[2, 3] = new Tile(EnumColor.Yellow, EnumTileType.Tile);
             Tiles[3, 3] = new Tile(EnumTileType.Mirror);
             Tiles[4, 3] = new Tile(EnumColor.Red, EnumTileType.Tile);
 
-            //5ª linha.
+            // 5ª linha.
             Tiles[0, 4] = new Tile(EnumColor.Yellow, EnumTileType.Tile);
             Tiles[1, 4] = new Tile(EnumColor.Red, EnumTileType.Tile);
-            Tiles[2, 4] = new Tile(EnumTileType.Portal);        // Blue Portal
+            Tiles[2, 4] = new Tile(EnumTileType.Portal);        
             Tiles[3, 4] = new Tile(EnumColor.Blue, EnumTileType.Tile);
             Tiles[4, 4] = new Tile(EnumColor.Yellow, EnumTileType.Tile);
 
@@ -104,14 +104,20 @@ namespace programaSolução_InácioDiogoRafael
         /// <summary>
         /// Getter para obter o tipo de casa em uma posição de Tiles.
         /// </summary>
-        /// <param name="i">X</param>
-        /// <param name="j">Y</param>
+        /// <param name="i"> X </param>
+        /// <param name="j"> Y </param>
         /// <returns></returns>
         public EnumTileType GetTileType(int i, int j)
         {
             return Tiles[i, j].GetTile();
         }
 
+        /// <summary>
+        /// Método para color os fantasmas nas casas
+        /// </summary>
+        /// <param name="g"> Variável tipo Ghost </param>
+        /// <param name="newX"> X atualizado </param>
+        /// <param name="newY"> Y atualizado </param>
         public void PlaceGhostOnTile(Ghost g, int newX, int newY)
         {
             Tiles[g.pos.x, g.pos.y].ghostOnTile = null;

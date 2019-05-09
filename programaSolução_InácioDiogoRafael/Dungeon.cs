@@ -55,16 +55,12 @@ namespace programaSolução_InácioDiogoRafael
             // Asinala o fantasma a ser libertado que já não está na
             // masmorra...
             freeGuy.inDungeon = false;
-            
-            // Adiciona o fantasma a ser libertado a lista de fantasmas do
-            // jogador...
-            //freeGuy.owner.playerGhosts.Add(freeGuy);
+                
             // Retira o fantasma a ser libertado da lista de fantasmas na
             // masmorra...
             freeGuy.owner.dungeonGhosts.Remove(freeGuy);
             // Termina com a remoção do fantasma da lista de prisioneiros.
             prisioners.Remove(freeGuy);
-            
         }
     }
 }

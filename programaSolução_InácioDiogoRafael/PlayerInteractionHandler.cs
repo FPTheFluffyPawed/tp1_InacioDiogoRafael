@@ -20,7 +20,7 @@ namespace programaSolução_InácioDiogoRafael
             currentIn = Console.ReadLine();
             }
             while(!InputValidate.CheckSelectGhost(currentIn,currentP));
-            //Atribuir o Ghost selecionado ao jogador certo
+            // Atribuir o Ghost selecionado ao jogador certo
             if (currentIn.Contains('d')) 
             {
                 convertedIn = Int32.Parse(currentIn.Remove(0,1));

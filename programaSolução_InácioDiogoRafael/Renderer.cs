@@ -38,6 +38,9 @@ namespace programaSolução_InácioDiogoRafael
             Console.Write("0\n1\n2\n3\n4");
         }
 
+        /// <summary>
+        /// Método para desenhar a legenda do programa.
+        /// </summary>
         public void DrawLegend()
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
@@ -220,7 +223,6 @@ namespace programaSolução_InácioDiogoRafael
             Console.SetCursorPosition(0,25);
             Console.Write($"Jogador{currP.playerNumber}: " + msg +"\n");
         }
-        //public void ShowPrompt(string msg, )
 
         /// <summary>
         /// Método para definir a cor do texto na consola.
