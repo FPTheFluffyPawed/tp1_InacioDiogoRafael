@@ -31,7 +31,7 @@ namespace programaSolução_InácioDiogoRafael
             else 
             {
                 
-                if(x > 0 && x < tileArray.GetLength(0) && y > 0 && y < tileArray.GetLength(1))
+                if(x >= 0 && x < tileArray.GetLength(0) && y >= 0 && y < tileArray.GetLength(1))
                 {
                     return true;
                 }
@@ -54,7 +54,7 @@ namespace programaSolução_InácioDiogoRafael
                 if (Int32.TryParse(currentInput.Remove(0,1), out int g))
                 {
                     //i = Int32.Parse(currentInput.Remove(0,1));
-                    if(g > 0 && g < p.dungeonGhosts.Count)
+                    if(g >= 0 && g < p.dungeonGhosts.Count)
                     {
                         if (p.dungeonGhosts[g] != null) return true;
                         else return false;
@@ -66,7 +66,7 @@ namespace programaSolução_InácioDiogoRafael
             else if (Int32.TryParse(currentInput, out int h))
             {
                 //i = Int32.Parse(currentInput);
-                if (h > 0 && h < p.playerGhosts.Count)
+                if (h >= 0 && h < p.playerGhosts.Count)
                 {
                     if(p.playerGhosts[h] != null) return true;
                     else return false;
