@@ -46,10 +46,10 @@ Rafael Silva:
 e algoritmos implementados.
 
 ### Diagrama UML
-![<Diagrama UML>](Uml.png)
+![<Diagrama UML>](images/Uml.png)
 
 ### Fluxograma 
-![<Fluxograma>](Fluxograma.png)
+![<Fluxograma>](images/Fluxograma.png)
 
 ### Conclusão
 * Conclusões e matéria aprendida
