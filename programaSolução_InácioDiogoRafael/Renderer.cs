@@ -164,7 +164,6 @@ namespace programaSolução_InácioDiogoRafael
             Console.Write("Selecting a ghost in the Dungeon will give" + 
              "it to the other player.\n");
 
-            
             // Apresenta os fantasmas de cada jogador na caverna.
             for (int i = 0; i < dung.GetPrisionerList().Count; i++)
             {

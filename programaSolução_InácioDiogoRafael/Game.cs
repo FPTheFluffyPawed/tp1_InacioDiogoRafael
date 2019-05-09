@@ -121,7 +121,8 @@ namespace programaSolução_InácioDiogoRafael
         //para 1 jogador
         private void DoPlayerTurn()
         {
-            PlayerInteractionHandler.PlayerSelectGhost(_renderer,_board, _dungeon, currentPlayer, players);
+            PlayerInteractionHandler.PlayerSelectGhost(_renderer,_board, 
+                _dungeon, currentPlayer, players);
 
             if(currentPlayer.selectedGhost != null)
                 PlayerInteractionHandler.PlayerSelectTile(_renderer, 
