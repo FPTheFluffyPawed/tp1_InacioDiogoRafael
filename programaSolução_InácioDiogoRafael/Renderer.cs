@@ -61,9 +61,11 @@ namespace programaSolução_InácioDiogoRafael
 
                     else if(tiles[x,y].GetTile() == EnumTileType.Tile)
                     {   
-                        TextColorSwitcher(tiles[x,y].GetColor());
-
-                        Console.Write(_tileVisual);
+                        if(tiles[x,y].ghostOnTile != null)
+                        {
+                            TextColorSwitcher(tiles[x,y].GetColor());
+                            Console.Write(_tileVisual);
+                        }
                     }
                     else Console.Write(""); 
                 }
@@ -178,9 +180,31 @@ namespace programaSolução_InácioDiogoRafael
                 "-----------");
         }
 
+        public void DrawGhostsOnBoard(Board b)
+        {
+            char c = ' ';
+            foreach(Tile t in b.Tiles)
+            {
+                if(t.ghostOnTile != null)
+                {
+                    if (t.ghostOnTile.owner.playerNumber == 1) 
+                    c = _ghostPlayer1Visual;
+                    else if (t.ghostOnTile.owner.playerNumber == 2) 
+                    c = _ghostPlayer2Visual;                   
+                    Console.SetCursorPosition(t.pos.x + 1, t.pos.y + 1 );
+                    TextColorSwitcher(t.ghostOnTile.color);
+                    Console.Write(c);
+                    
+                }
+
+            }
+
+        }
+
         public void ShowPrompt(string msg, Player currP)
         {
-            Console.Write($"Jogador{currP.playerNumber}: " + msg);
+            Console.SetCursorPosition(0,10);
+            Console.Write($"Jogador{currP.playerNumber}: " + msg +"\n");
         }
         //public void ShowPrompt(string msg, )
 
