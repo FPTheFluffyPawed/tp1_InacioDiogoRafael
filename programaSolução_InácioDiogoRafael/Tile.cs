@@ -28,6 +28,7 @@ namespace programaSolução_InácioDiogoRafael
             TileColor = tileColor;
             TileType = tileType;
             ghostOnTile = null;
+            pos = new Position();
         }
 
         /// <summary>
@@ -38,6 +39,7 @@ namespace programaSolução_InácioDiogoRafael
         {
             TileType = tileType;
             ghostOnTile = null;
+            pos = new Position();
         }
 
         // Buscar e returnar a cor de um objeto.
