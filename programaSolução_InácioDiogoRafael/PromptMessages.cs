@@ -14,5 +14,7 @@ namespace programaSolução_InácioDiogoRafael
         public static string SelectTile = "Escreve as coordenadas do " +
             "quadrado onde queres colocar o fantasma selecionado, no formato" +
             " 'x,y' sem as ''. e depois carrega ENTER";
+
+        public static string WinMessage = "ain't afraid of no ghosts. CHICKEN CHICKEN WINNER DINNER";
     }
 }

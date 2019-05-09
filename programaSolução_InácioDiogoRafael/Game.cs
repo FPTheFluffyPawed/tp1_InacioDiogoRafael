@@ -65,6 +65,8 @@ namespace programaSolução_InácioDiogoRafael
                 if(WinCondition()) 
                     break;
             }
+
+            _renderer.ShowPrompt(PromptMessages.WinMessage, currentPlayer);
         }
 
         /// <summary>
