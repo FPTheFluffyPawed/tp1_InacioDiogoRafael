@@ -34,7 +34,7 @@ namespace programaSolução_InácioDiogoRafael
             this.owner = owner;
             inDungeon = false;
             isOnBoard = false;
-            possiblePos = new List<Position>();
+            possiblePos = new List<Position>(4);
 
         }
 
@@ -56,10 +56,10 @@ namespace programaSolução_InácioDiogoRafael
             pos.x = x;
             pos.y = y;
 
-            possiblePos[0] = new Position(x, y + 1);
-            possiblePos[1] = new Position(x + 1, y);
-            possiblePos[2] = new Position(x, y - 1);
-            possiblePos[3] = new Position(x - 1, y);
+            possiblePos.Add(new Position(x, y + 1));
+            possiblePos.Add(new Position(x + 1, y));
+            possiblePos.Add(new Position(x, y - 1));
+            possiblePos.Add(new Position(x - 1, y));
 
             if(onMirrorTile)
             {
@@ -77,7 +77,6 @@ namespace programaSolução_InácioDiogoRafael
             {
                 if (t.GetTile() == EnumTileType.Tile)
                 {   
-
                     if(t.GetColor() == this.color)               
                     possiblePos.Add(new Position(t.pos.x,t.pos.y));
 
