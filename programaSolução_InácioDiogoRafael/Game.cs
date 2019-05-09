@@ -55,14 +55,16 @@ namespace programaSolução_InácioDiogoRafael
         /// </summary>
         public void GameLoop()
         {
-            //SetupPhase();
+            
             for(int i = 0; i < 1666; i++)
             {
                 currentPlayer = players[i % 2];
                 currentPlayer.selectedGhost = null;
                 UpdateDrawCall();
                 DoPlayerTurn();
-                if(WinCondition()) 
+                ActivatePortals();
+ 
+                if( WinCondition() ) 
                     break;
             }
 
@@ -169,6 +171,20 @@ namespace programaSolução_InácioDiogoRafael
                 UpdateDrawCall();
                 DoPlayerTurn();
             }    
+        }
+
+        /// <summary>
+        /// Itera por todos os portais e fá-los verificar se existe 
+        /// algum fantasma que possam comer
+        /// </summary>
+        private void ActivatePortals()
+        {
+
+            foreach(Portal p in _board.Portals)
+            {
+                p.FreeGhosts(_board);
+            }
+
         }
     }
 }
