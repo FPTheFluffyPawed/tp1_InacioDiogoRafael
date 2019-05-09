@@ -33,7 +33,7 @@ Inácio Amerio:
 Rafael Silva:
 * Fez a estrutura inicial do código com o Diogo.
 * Fez as classes `Ghost.cs`, `InputValidate.cs`, `PlayerInteractionHandler.cs`, 
-  `PromptMessages.cs` e `Renderer.cs`.
+  `PromptMessages.cs`, `Renderer.cs` e `Dungeon.cs`.
 * Funcionou como guia do grupo.
 * Ajudou o Diogo e o Inácio sempre que os mesmos tiveram dúvidas acerca de como
   fazer alguma parte do programa.
