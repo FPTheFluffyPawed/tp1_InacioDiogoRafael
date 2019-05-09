@@ -64,8 +64,8 @@ namespace programaSolução_InácioDiogoRafael
                 switch (Defender.color)
                 {
                     case EnumColor.Red:
-                        d.UpdatePrisionerList(Defender);
                         Defender.isOnBoard = false;
+                        d.UpdatePrisionerList(Defender);
                         return true;
                     case EnumColor.Blue:
                         d.UpdatePrisionerList(Attacker);

@@ -57,7 +57,7 @@ namespace programaSolução_InácioDiogoRafael
         /// </summary>
         public void GameLoop()
         {
-
+            //SetupPhase();
             for(int i = 0; i < 1666; i++)
             {
                 currentPlayer = players[i % 2];
@@ -134,7 +134,7 @@ namespace programaSolução_InácioDiogoRafael
         private void DoPlayerTurn()
         {
 
-            PlayerInteractionHandler.PlayerSelectGhost(_renderer, currentPlayer, players);
+            PlayerInteractionHandler.PlayerSelectGhost(_renderer, _dungeon, currentPlayer, players);
 
             if(currentPlayer.selectedGhost != null)
                 PlayerInteractionHandler.PlayerSelectTile(_renderer, _board,_dungeon, currentPlayer, players);

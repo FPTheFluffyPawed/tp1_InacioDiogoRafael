@@ -47,13 +47,10 @@ namespace programaSolução_InácioDiogoRafael
         /// <returns></returns>
         public static bool CheckSelectGhost(string currentInput, Player p)
         {
-            int i;
-
             if(currentInput.Contains('d'))
             {
                 if (Int32.TryParse(currentInput.Remove(0,1), out int g))
                 {
-                    //i = Int32.Parse(currentInput.Remove(0,1));
                     if(g >= 0 && g < p.dungeonGhosts.Count)
                     {
                         if (p.dungeonGhosts[g] != null) return true;

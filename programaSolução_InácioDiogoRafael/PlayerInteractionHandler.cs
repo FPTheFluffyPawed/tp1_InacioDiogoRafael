@@ -12,7 +12,7 @@ namespace programaSolução_InácioDiogoRafael
         private static int conInY;
 
 
-        public static void PlayerSelectGhost(Renderer r, Player currentP, Player[] pList)
+        public static void PlayerSelectGhost(Renderer r, Dungeon d, Player currentP, Player[] pList)
         {
             do
             {
@@ -25,7 +25,10 @@ namespace programaSolução_InácioDiogoRafael
             if (currentIn.Contains('d')) 
             {
                 convertedIn = Int32.Parse(currentIn.Remove(0,1));
-                currentP.dungeonGhosts[convertedIn].ChangeOwner(pList[currentP.playerNumber % 2]);
+                currentP.selectedGhost = currentP.dungeonGhosts[convertedIn];
+                d.ReleasePrisioner(currentP.selectedGhost);
+                int nextP = pList[currentP.playerNumber % 3].playerNumber;
+                currentP.dungeonGhosts[convertedIn].ChangeOwner(pList[nextP]);
 
             }
             else
