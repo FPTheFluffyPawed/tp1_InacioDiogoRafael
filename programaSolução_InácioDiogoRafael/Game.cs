@@ -214,7 +214,7 @@ namespace programaSolução_InácioDiogoRafael
             _inIntY = Int32.Parse(_inputArr[1]);
 
             g1 = currentPlayer.selectedGhost;
-            foreach(Position p in g1.possiblePos)
+            foreach(Position p in g1.possiblePos.ToArray())
             {
                 if(p.x == _inIntX  &&  p.y == _inIntY)
                 {
