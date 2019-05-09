@@ -5,7 +5,7 @@ Diogo Heriques, a21802132
 
 Inácio Amerio, a21803493
 
-Rafael Silva, a21805637
+Rafael Castro e Silva, a21805637
 
 [Repositório Git](https://github.com/FPTheFluffyPawed/tp1_InacioDiogoRafael)
 
