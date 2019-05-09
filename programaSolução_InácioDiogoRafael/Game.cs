@@ -46,6 +46,12 @@ namespace programaSolução_InácioDiogoRafael
             _renderer = new Renderer();
             players[0] = new Player();
             players[1] = new Player();
+
+            foreach(Ghost g in players[0].playerGhosts)
+                g.SetStartPossiblePos(_board.Tiles);
+            foreach(Ghost g in players[1].playerGhosts)
+                g.SetStartPossiblePos(_board.Tiles);
+
         }
 
         /// <summary>
@@ -53,97 +59,64 @@ namespace programaSolução_InácioDiogoRafael
         /// </summary>
         public void GameLoop()
         {
+           /*  currentPlayer = players[0];
+
+            _renderer.DrawNumbers();
+            _renderer.DrawTiles(_board.Tiles);
+            _renderer.DrawPortals(_board.Portals);
+            _renderer.DrawPlayerGhostList(currentPlayer);
+            //_renderer.DrawDungeonGhostList(_dungeon);
+
+            for(int i = 0; i < players.Length; i++)
+            {
+                foreach(Ghost g in players[i].playerGhosts)
+                {
+                    g.SetStartPossiblePos(_board.Tiles);
+                }             
+            }
+            
+            
+            PlayerSelectGhost();
+            PlayerSelectTile();
+
+            currentPlayer = players[1];
+            PlayerSelectGhost();
+            PlayerSelectTile();
+
+            PlayerSelectGhost();
+            PlayerSelectTile();
+
+            for(int i = 0; i < 15; i++)
+            {
+                currentPlayer = players[i % 2];
+                PlayerSelectGhost();
+                PlayerSelectTile();
+            }    */       
+
+
+
             for(int i = 0; i < 888; i++)
             {
                 currentPlayer = players[i % 2];
                 currentPlayer.selectedGhost = null;
                 // Desenha o mapa do jogo.
-                Console.WriteLine(_fastMode);
-                Console.ReadLine();
                 _renderer.DrawNumbers();
                 _renderer.DrawTiles(_board.Tiles);
                 _renderer.DrawPortals(_board.Portals);
+                _renderer.DrawGhostsOnBoard(_board);
                 _renderer.DrawPlayerGhostList(currentPlayer);
                 _renderer.DrawDungeonGhostList(_dungeon);
             
                 //Pedir para selecionar um fantasma
-                do
-                {
-                _renderer.ShowPrompt(PromptMessages.SelectGhost, currentPlayer);
-                _input = Console.ReadLine();
-                }
-                while(!InputValidate.CheckSelectGhost(_input,currentPlayer));
-
-                //Atribuir o Ghost selecionado ao jogador certo
-                if (_input.Contains('d')) 
-                {
-                    _inputInt = Int32.Parse(_input.Remove(0,1));
-                    currentPlayer.dungeonGhosts[_inputInt].ChangeOwner(players[currentPlayer.playerNumber % 2]);
-
-                }
-                else
-                {
-                    _inputInt = Int32.Parse(_input);
-                    currentPlayer.selectedGhost = currentPlayer.playerGhosts[_inputInt]; 
-                }
-
+                PlayerSelectGhost();
                 // Usar o ghost selecionado se houver, e colocá-lo numa 
                 //Tile válida
-                if(currentPlayer.selectedGhost != null)
-                {
-                    //Pedir para selecionar uma Tile
-                    do
-                    {
-                     _renderer.ShowPrompt(PromptMessages.SelectTile, currentPlayer);
-                    _input = Console.ReadLine();                       
-
-                    }
-                    while(!InputValidate.CheckSelectTile(_input, _board.Tiles));
-
-                    _inputArr = _input.Split(',');
-                    _inIntX = Int32.Parse(_inputArr[0]);
-                    _inIntY = Int32.Parse(_inputArr[1]);
-
-                    g1 = currentPlayer.selectedGhost;
-                    foreach(Position p in g1.possiblePos)
-                    {
-                        if(p.x == _inIntX && p.y == _inIntY)
-                        {
-                            if(_board.Tiles[_inIntX,_inIntY].ghostOnTile 
-                                != null) 
-                            {   
-                                g2 = _board.Tiles[_inIntX,_inIntY].ghostOnTile;
-
-                                if(g2.color != g1.color)
-                                {
-                                    if(GhostFight.Resolve(g1, g2, _dungeon))
-                                    {
-                                        _board.PlaceGhostOnTile(g1,_inIntX, _inIntY);
-
-                                    }
-                                }
-                                else  _board.PlaceGhostOnTile(g1,_inIntX, _inIntY);
-                                        
-                            }
-
-
-                        }
-                        
-                    }
-
-
-                }
-                
-
-
-
-               
-
+                if(currentPlayer.selectedGhost != null) 
+                    PlayerSelectTile();
                 // Verificar se o jogador ganhou.
-                if(WinCondition()) break;
+                if(WinCondition()) 
+                    break;
 
-                // NOTA:
-                // Termina a vez de o jogador.
 
                 }
         }
@@ -203,8 +176,69 @@ namespace programaSolução_InácioDiogoRafael
         /// <summary>
         /// Metódo que trata a vez de um jogador. INCOMPLETO.
         /// </summary>
-        public void playerTurn()
+        private void PlayerSelectGhost()
         {
+            do
+            {
+            _renderer.ShowPrompt(PromptMessages.SelectGhost, currentPlayer);
+            _input = Console.ReadLine();
+            }
+            while(!InputValidate.CheckSelectGhost(_input,currentPlayer));
+
+            //Atribuir o Ghost selecionado ao jogador certo
+            if (_input.Contains('d')) 
+            {
+                _inputInt = Int32.Parse(_input.Remove(0,1));
+                currentPlayer.dungeonGhosts[_inputInt].ChangeOwner(players[currentPlayer.playerNumber % 2]);
+
+            }
+            else
+            {
+                _inputInt = Int32.Parse(_input);
+                currentPlayer.selectedGhost = currentPlayer.playerGhosts[_inputInt]; 
+            }
+        }
+
+        private void PlayerSelectTile()
+        {
+            do
+            {
+                _renderer.ShowPrompt(PromptMessages.SelectTile, currentPlayer);
+                _input = Console.ReadLine();                       
+
+            }
+            while(!InputValidate.CheckSelectTile(_input, _board.Tiles));
+
+            _inputArr = _input.Split(',');
+            _inIntX = Int32.Parse(_inputArr[0]);
+            _inIntY = Int32.Parse(_inputArr[1]);
+
+            g1 = currentPlayer.selectedGhost;
+            foreach(Position p in g1.possiblePos)
+            {
+                if(p.x == _inIntX  &&  p.y == _inIntY)
+                {
+                    if(_board.Tiles[_inIntX,_inIntY].ghostOnTile != null)   
+                    {   
+                        g2 = _board.Tiles[_inIntX,_inIntY].ghostOnTile;
+
+                        if(g2.color != g1.color)
+                        {
+
+                            if(GhostFight.Resolve(g1, g2, _dungeon))
+                            {
+                                _board.PlaceGhostOnTile(g1,_inIntX, _inIntY);
+
+                            }                               
+                            
+                        }
+                        
+                    }
+                    else  
+                        _board.PlaceGhostOnTile(g1,_inIntX, _inIntY);
+                   
+                }
+            }
 
         }
     }
